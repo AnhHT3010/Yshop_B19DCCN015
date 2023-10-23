@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteRule "trangchu" "?act=home"
+RewriteRule "dangnhap" "?act=login"
