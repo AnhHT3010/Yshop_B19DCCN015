@@ -8,10 +8,11 @@
 </head>
 
 <body>
-    <h1 class='text-3xl text-blue-500 font-bold underline'>
+    <?php require_once("slider.php"); ?>
+    <h1 class='bg-primary'>
         Home
     </h1>
-    <a href="./dangnhap">Login</a>
+    <a class='text-danger' href="./dangnhap">Login</a>
 </body>
 
 </html>
