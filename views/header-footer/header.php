@@ -54,6 +54,10 @@
                                     </div><!-- End .header-menu -->
                                 </div>
                             </li>
+                            <li>
+                                <?php if (isset($_SESSION['isLogin_Admin'])) { ?>
+                            <li><a href="./?act=taikhoan&xuli=dangxuat">Sign Out</a></li>
+                        <?php } ?>
                     </li>
                 </ul>
                 </li>
@@ -121,22 +125,52 @@
                         <li class="megamenu-container">
                             <a href="categoris-smartwacthes">Smart Watches</a>
                         </li>
-                        <li class="megamenu-container">
-                            <a href="categoris-digitalcameras"> Digital Cameras</a>
-                        </li>
                     </ul><!-- End .menu -->
                 </nav><!-- End .main-nav -->
             </div><!-- End .header-center -->
 
             <div class="header-right">
-                <i class="la la-lightbulb-o"></i>
-                <a href="video">
-                    <p><span class="highlight">Video</span></p>
-                </a>
-                <a href="cart">
-                    <p><span class="highlight">&nbsp; Cart</span></p>
-                </a>
-            </div>
-        </div><!-- End .container -->
-    </div><!-- End .header-bottom -->
+                <?php if (isset($_SESSION['isLogin_Admin'])) { ?>
+                    <div class="dropdown compare-dropdown">
+                        <a href="AdminConsole" class="dropdown-toggle">
+                            <div class="icon">
+                                <i class="fas fa-users-cog"></i>
+                            </div>
+                            <p>MANAGEMENT PAGE</p>
+                        </a>
+                    </div><!-- End .compare-dropdown -->
+                <?php } else { ?>
+                    <div class="dropdown compare-dropdown">
+                        <a href="login" class="dropdown-toggle d-flex flex-row justify-content-center align-center" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static" title="Compare Products" aria-label="Compare Products">
+                            <i class="fa-regular fa-user"></i>
+                            <?php if (isset($_SESSION['isLogin'])) { ?>
+                                <p><?= $_SESSION['login']['Ho'] ?> <?= $_SESSION['login']['Ten'] ?></p>
+                            <?php } else { ?>
+                                <p>Login</p>
+                            <?php } ?>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <ul class="compare-products">
+                                <li class="compare-product">
+
+                                    <?php if (isset($_SESSION['isLogin'])) {
+                                    } else { ?>
+                                        <a href="#" class="btn-remove" title="Remove Product"><i class="fa-solid fa-xmark"></i></a>
+                                        <h4 class="compare-product-title"><a href="login">Login</a></h4>
+                                    <?php } ?>
+                                </li>
+                                <li class="compare-product">
+                                    <a href="./personal" class="btn-remove" title="Remove Product"><i class="fa-solid fa-xmark"></i></a>
+                                    <h4 class="compare-product-title"><a href="personal">My account</a></h4>
+                                </li>
+                            </ul>
+
+                            <div class="compare-actions">
+                                <a href="./?act=taikhoan&xuli=dangxuat" class="btn btn-outline-primary-2"><span>Logout</span><i class="icon-long-arrow-right"></i></a>
+                            </div>
+                        </div><!-- End .dropdown-menu -->
+                    <?php } ?>
+                    </div>
+            </div><!-- End .container -->
+        </div><!-- End .header-bottom -->
 </header><!-- End .header -->

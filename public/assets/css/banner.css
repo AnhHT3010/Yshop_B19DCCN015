@@ -8,6 +8,7 @@
   justify-content: center;
   align-items: center;
   color: #fff; /* Màu chữ */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* Định dạng màu nền và màu chữ khi hover */

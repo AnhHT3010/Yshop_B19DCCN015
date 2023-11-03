@@ -15,7 +15,7 @@ body {
 body {
   font: normal 300 1.8rem/1.86 "Poppins", sans-serif;
   color: #666;
-  background-color: #1c1b1b;
+  background-color: #ffffff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -218,7 +218,7 @@ a:focus {
 }
 
 .text-primary {
-  color: rgb(102, 172, 204) !important;
+  color: #197ae2 !important;
 }
 
 .text-secondary {
@@ -911,7 +911,7 @@ blockquote.text-white cite span {
   align-items: center;
   text-decoration: none !important;
   line-height: 1;
-  color: #333;
+  color: #000000;
 }
 
 .cart-dropdown .dropdown-toggle::after,
@@ -976,7 +976,7 @@ blockquote.text-white cite span {
 .cart-dropdown .btn-remove:focus,
 .compare-dropdown .btn-remove:hover,
 .compare-dropdown .btn-remove:focus {
-  color: #333;
+  color: #000000;
 }
 
 .cart-dropdown:hover .dropdown-toggle,
@@ -1020,7 +1020,7 @@ blockquote.text-white cite span {
 }
 
 .compare-product-title {
-  color: #666;
+  color: #000000;
   font-weight: 300;
   font-size: 1.3rem;
   line-height: 1.35;
@@ -1045,7 +1045,7 @@ blockquote.text-white cite span {
 
 .compare-actions .action-link {
   font-size: 1.3rem;
-  color: #666;
+  color: #000000;
 }
 
 .compare-actions .action-link:hover,
@@ -1558,17 +1558,6 @@ blockquote.text-white cite span {
   position: absolute;
   content: "";
   left: 28.5rem;
-  height: 1.5rem;
-  width: 0.1rem;
-  top: 50%;
-  background-color: #ccc;
-  transform: translateY(-50%);
-}
-
-.header-intro-clearance .header-bottom .container::after {
-  position: absolute;
-  content: "";
-  right: 28rem;
   height: 1.5rem;
   width: 0.1rem;
   top: 50%;
@@ -3110,7 +3099,7 @@ blockquote.text-white cite span {
 .mobile-menu-light
   .nav.nav-pills-mobile
   .nav-link:not(:hover):not(:focus):not(.active) {
-  color: #333;
+  color: #1c1b1b;
 }
 
 .mobile-menu-light .mobile-cats-menu li a {
@@ -3125,7 +3114,7 @@ blockquote.text-white cite span {
   .mobile-cats-menu
   li
   a:not(:hover):not(:focus).mobile-cats-lead {
-  color: #333;
+  color: #1c1b1b;
 }
 
 a {
@@ -3138,7 +3127,7 @@ p {
   font-weight: 300;
   font-family: "Poppins";
   letter-spacing: 0;
-  color: #777;
+  color: #1c1b1b;
 }
 
 .header-2 {
@@ -3528,13 +3517,13 @@ p {
 
 .header-4 .cart-dropdown:not(:hover):not(.show) .dropdown-toggle,
 .header-4 .compare-dropdown:not(:hover):not(.show) .dropdown-toggle {
-  color: #333;
+  color: #000000;
 }
 
 .header-4 .wishlist-link:not(:hover):not(:focus),
 .header-4 .search-toggle:not(:hover):not(:focus),
 .header-4 .mobile-menu-toggler {
-  color: #333;
+  color: #000000;
 }
 
 .header-4.header-intro-clearance .header-search .header-search-wrapper {
@@ -7229,7 +7218,7 @@ p {
 }
 
 .btn-outline-primary-2 {
-  color: red;
+  color: rgb(102, 172, 204);
   background-color: transparent;
   background-image: none;
   border-color: rgb(102, 172, 204);
@@ -7242,7 +7231,7 @@ p {
 .btn-outline-primary-2:not(:disabled):not(.disabled):active,
 .btn-outline-primary-2:not(:disabled):not(.disabled).active,
 .show > .btn-outline-primary-2.dropdown-toggle {
-  color: #1c1b1b;
+  color: #fff;
   background-color: rgb(102, 172, 204);
   border-color: rgb(102, 172, 204);
   box-shadow: none;
@@ -9354,7 +9343,7 @@ p {
 }
 
 .banner-title a {
-  color: #fff6f6;
+  color: #0c356a;
 }
 
 .banner-title a:hover,
@@ -9363,11 +9352,11 @@ p {
 }
 
 .banner-title.text-white a {
-  color: #1c1b1b;
+  color: #0c356a;
 }
 
 .banner-subtitle {
-  color: #777;
+  color: #0c356a;
   font-weight: 300;
   font-size: 1.8rem;
   line-height: 1.2;
@@ -9389,6 +9378,7 @@ p {
 }
 
 .banner-link {
+  margin-top: -30px;
   font-weight: 400;
   display: inline-block;
 }
@@ -9436,10 +9426,6 @@ p {
 }
 
 @media screen and (min-width: 992px) {
-  .banner-content {
-    left: 4rem;
-  }
-
   .banner-big .banner-content {
     left: 10rem;
   }
@@ -11351,8 +11337,12 @@ button:focus {
 }
 
 .brand img {
-  width: auto !important;
-  max-width: 100% !important;
+  /* width: auto !important; */
+  width: 170px;
+  height: 70px;
+  border-radius: 15px;
+  max-width: 117px;
+  max-height: 35px;
 }
 
 .brand:focus {
@@ -15487,7 +15477,7 @@ button:focus {
   max-width: 575px;
   margin-left: auto;
   margin-right: auto;
-  background-color: #1c1b1b;
+  background-color: #fff;
   padding: 2.2rem 2rem 4.4rem;
   box-shadow: 0 3px 16px rgba(51, 51, 51, 0.1);
 }
@@ -15520,7 +15510,7 @@ button:focus {
 }
 
 .form-tab .nav.nav-pills .nav-link.active {
-  color: #fff6f6;
+  color: #231f1f;
 }
 
 .form-tab .nav-fill .nav-item {
