@@ -5,7 +5,8 @@
             <div class="row">
                 <div class="col-sm-6 col-lg-3">
                     <div class="widget widget-about">
-                        <img src="public/assets/images/logo.webpư" class="footer-logo" alt="Footer Logo" width="105" height="25">
+                        <img src="public/assets/images/logo.webpư" class="footer-logo" alt="Footer Logo" width="105"
+                            height="25">
                         <p>Praesent dapibus, neque id cursus ucibus, tortor neque egestas augue, eu vulputate
                             magna eros eu erat. </p>
 
@@ -68,7 +69,7 @@
             <p class="footer-copyright">Copyright © 2022 Molla Store. All Rights Reserved.</p>
             <!-- End .footer-copyright -->
             <figure class="footer-payments">
-                <img src="public/assets/images/payments.png" alt="Payment methods" width="272" height="20">
+                <img src="public/assets/images/Payment-Icons.png" alt="Payment methods" width="272" height="20">
             </figure><!-- End .footer-payments -->
         </div><!-- End .container -->
     </div><!-- End .footer-bo ttom -->

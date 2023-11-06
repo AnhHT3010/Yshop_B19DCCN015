@@ -111,7 +111,7 @@ div#product-info-tab {
 }
 
 .bg-image {
-  background-color: #ccc;
+  /* background-image: url('../../public/assets/images/backgrounds/login-bg.jpg'); */ 
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -793,18 +793,6 @@ blockquote.text-white cite span {
   padding-right: 2.2rem;
   align-items: center;
   text-transform: uppercase;
-}
-
-.header-dropdown > a::after,
-.header-dropdown > span::after {
-  content: "\f110";
-  position: absolute;
-  right: 0;
-  top: 50%;
-  display: inline-block;
-  font-size: 1.2rem;
-  line-height: 1;
-  margin-top: -0.7rem;
 }
 
 .header-dropdown a:hover,
@@ -2952,7 +2940,7 @@ blockquote.text-white cite span {
 }
 
 .mobile-search .form-control:focus {
-  color: #1c1b1b;
+  color: #eae9e9;
   border-color: rgb(102, 172, 204);
   background-color: #333;
 }
@@ -10140,7 +10128,7 @@ select.form-control:not([size]):not([multiple]) {
 
 .form-control:focus {
   color: #777;
-  background-color: #1c1b1b;
+  background-color: #e2eef7;
   border-color: rgb(102, 172, 204);
   box-shadow: none;
   outline: none !important;
@@ -10225,17 +10213,6 @@ small.form-text {
   appearance: none;
 }
 
-.select-custom::after {
-  content: "\f110";
-  position: absolute;
-  display: inline-block;
-  right: 1.9rem;
-  top: 50%;
-  font-size: 1.5rem;
-  transform: translateY(-51%);
-  color: #333;
-}
-
 .select-custom .form-control,
 .select-custom .form-control-sm {
   padding-right: 4rem;
@@ -10258,6 +10235,10 @@ small.form-text {
   text-transform: initial;
   letter-spacing: 0;
   font-weight: 400;
+}
+
+.form-group-custom-control .custom-control-label a {
+  color: #b90404 !important;
 }
 
 .custom-control {
@@ -10308,8 +10289,6 @@ small.form-text {
   color: #1c1b1b;
   background-image: none;
   font-size: 1rem;
-
-  content: "\ec2d";
   line-height: 1;
   text-align: center;
   opacity: 0;
@@ -10343,7 +10322,6 @@ small.form-text {
 }
 
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {
-  background-image: none;
   opacity: 1;
   visibility: visible;
 }
@@ -15540,7 +15518,7 @@ button:focus {
 }
 
 .form-tab .form-footer a {
-  color: #fff6f6;
+  color: black;
 }
 
 .form-tab .form-footer a:hover,
@@ -18832,10 +18810,6 @@ button:focus {
   content: "\f2e7";
 }
 
-.icon-search:before {
-  content: "\f2eb";
-}
-
 .icon-search-plus:before {
   content: "\f2ed";
 }
@@ -19908,4 +19882,42 @@ button:focus {
   content: "\f7e3";
 }
 
+.alert-msg {
+  position: fixed; /* Đặt phần tử ở vị trí cố định */
+  top: 300px; /* Khoảng cách từ trên xuống */
+  right: 10px; /* Khoảng cách từ phải sang trái */
+}
+
+.alert-msg strong {
+  color: black; /* Màu của đoạn văn bản in đậm */
+}
+.toast-msg{
+  background-color: #ebaeae; /* Màu nền của thông báo */
+  border: 1px solid rgb(102, 172, 204); /* Đường viền của thông báo */
+  padding: 10px; /* Khoảng cách giữa nội dung và biên của thông báo */
+  border-radius: 5px; /* Bo tròn góc */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Đổ bóng cho thông báo */
+  z-index: 9999; /* Đảm bảo hiển thị trên các phần tử khác */
+  color: black;
+  animation: slideInLeft ease .3s, fadeOut linear 1s 3s forwards;
+}
+@keyframes slideInLeft{
+  from {
+    transform: translateX(calc(100%+32px));
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeOut {
+  to{
+    opacity: 0;
+  }
+}
+#cancel:hover {
+  cursor: pointer;
+  color: black;
+}
 /*# sourceMappingURL=style.css.map */

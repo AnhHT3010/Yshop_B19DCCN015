@@ -10,6 +10,7 @@ class HomeController
     function list()
     {
         $data_slider = $this->home_model->slider();
+        $data_categories = $this->home_model->categories();
         require_once("views/index.php");
     }
 }

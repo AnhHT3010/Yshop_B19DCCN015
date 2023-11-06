@@ -123,28 +123,21 @@
         <h1 class="text-center mb-4 text-primary">Khám phá các danh mục phổ biến</h1><!-- End .title text-center -->
         <div class="cat-blocks-container">
             <div class="row">
-                <div class="col-6 col-sm-4 col-lg-1">
-                    <a href="type-product-0" class="cat-block">
-                        <figure>
-                            <span>
-                                <img src="public/assets/images/demos/demo-4/cats/2.png" alt="Category image">
-                            </span>
-                        </figure>
-
-                        <p class="cat-block-title">Smart Phones</p><!-- End .cat-block-title -->
-                    </a>
-                </div><!-- End .col-sm-4 col-lg-2 -->
-                <div class="col-6 col-sm-4 col-lg-1">
-                    <a href="type-product-0" class="cat-block">
-                        <figure>
-                            <span>
-                                <img src="public/assets/images/demos/demo-4/cats/2.png" alt="Category image">
-                            </span>
-                        </figure>
-
-                        <p class="cat-block-title">Smart Phones</p><!-- End .cat-block-title -->
-                    </a>
-                </div><!-- End .col-sm-4 col-lg-2 -->
+                <?php
+                foreach ($data_categories as $row) {
+                    echo 
+                    '<div class="col-6 col-sm-4 col-lg-1">
+                        <a href="type-product-0" class="cat-block">
+                            <figure>
+                                <span>
+                                    <img src="public/assets/images/demos/demo-4/cats/' . $row['HinhAnh'] . '" alt="Category image">
+                                </span>
+                            </figure>
+                            <p class="cat-block-title">' . $row['TenDM'] . '</p>
+                        </a>
+                    </div>';
+                }
+                ?>
             </div><!-- End .row -->
         </div><!-- End .cat-blocks-container -->
     </div><!-- End .container -->

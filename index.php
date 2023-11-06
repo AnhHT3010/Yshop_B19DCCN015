@@ -47,7 +47,6 @@ switch ($act) {
                     case 'dangnhap':
                         echo "dangnhap";
                         $controller_obj->login_action();
-
                         break;
                     case 'dangky':
                         echo "dangky";

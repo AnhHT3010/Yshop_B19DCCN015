@@ -13,10 +13,9 @@ class LoginContronler
     }
     function dangky()
     {
-        $check1 = 0;
-        $check2 = 0;
+        $check1 = 0; # Kiểm tra tài khoản đã tồn tại chưa ?
+        $check2 = 0; # Kiểm tra việc xác nhận mật khẩu có trùng không ?
         $data_check = $this->login_model->check_account();
-        echo $data_check;
         foreach ($data_check as $value) {
             if ($value['Email'] == $_POST['Email'] || $value['TaiKhoan'] == $_POST['TaiKhoan']) {
                 $check1 = 1;
@@ -45,6 +44,7 @@ class LoginContronler
             'MaQuyen' =>  '1',
             'TrangThai'  =>  $TrangThai
         );
+        //  bảo vệ dữ liệu trước các loại tấn công chèn SQL (SQL injection)
         foreach ($data as $key => $value) {
             if (strpos($value, "'") != false) {
                 $value = str_replace("'", "\'", $value);

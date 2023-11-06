@@ -13,7 +13,7 @@
                         <ul>
                             <li>
                                 <div class="header-dropdown">
-                                    <a href="#">USD</a>
+                                    <a href="#">USD<i class="fa-solid fa-chevron-down pl-1"></i></a>
                                     <div class="header-menu">
                                         <ul>
                                             <li><a href="#">Eur</a></li>
@@ -24,7 +24,7 @@
                             </li>
                             <li>
                                 <div class="header-dropdown">
-                                    <a href="#">English</a>
+                                    <a href="#">English<i class="fa-solid fa-chevron-down pl-1"></i></a>
                                     <div class="header-menu">
                                         <ul>
                                             <li><a href="#">English</a></li>
@@ -45,7 +45,8 @@
 
                             <li>
                                 <div class="header-dropdown">
-                                    <a href="#">Contact</a>
+                                    <a href="#">Contact<i class="fa-solid fa-chevron-down pl-1"></i></a>
+
                                     <div class="header-menu">
                                         <ul>
                                             <li><a href="about">About</a></li>
@@ -82,16 +83,17 @@
 
             <div class="header-center">
                 <div class="header-search header-search-extended header-search-visible d-none d-lg-block">
-                    <a href="#" class="search-toggle" role="button"><i class="icon-search"></i></a>
+                    <a href="#" class="search-toggle" role="button"><i class="fa-brands fa-searchengin"></i></a>
                     <form action="./?act=shop" method="post">
 
                         <div class="header-search-wrapper search-wrapper-wide">
-                            <button class="btn btn-primary" type="submit"><i class="icon-search"></i></button>
+                            <button class="btn btn-primary" type="submit"><i class="fa-brands fa-searchengin"></i></button>
                             <label for="q" class="sr-only">Search</label>
                             <input type="search" class="form-control" name="keyword" required id="q" placeholder="Search in ...">
                             <div style="flex: 0 0 160px;" class="select-custom">
                                 <select style="background: none; border-radius: 3rem;color: #333; font-weight: 500;" id="cat" name="searchcategory">
-                                    <option value="" style="color: #333; font-weight: 500;">Categories</option>
+                                    <option value="" style="color: #333; font-weight: 500;">Categories<i class="fa-solid fa-chevron-down pl-1"></i>
+                                    </option>
                                 </select>
                             </div><!-- End .select-custom -->
 
@@ -110,10 +112,14 @@
             <div class="header-center">
                 <nav class="main-nav">
                     <ul class="menu sf-arrows">
-                        <li class="megamenu-container" class="active">
-                            <a href="store">Store</a>
-                        </li>
-                        <li class="megamenu-container">
+                        <?php
+                        for ($i = 0; $i < 5; $i++) {
+                            echo '<li class="megamenu-container">';
+                            echo '<a href="store">' . $data_categories[$i]['TenDM'] . '</a>';
+                            echo '</li>';
+                        }
+                        ?>
+                        <!-- <li class="megamenu-container">
                             <a href="categoris-smartphone">Smart Phone</a>
                         </li>
                         <li class="megamenu-container">
@@ -124,7 +130,7 @@
                         </li>
                         <li class="megamenu-container">
                             <a href="categoris-smartwacthes">Smart Watches</a>
-                        </li>
+                        </li> -->
                     </ul><!-- End .menu -->
                 </nav><!-- End .main-nav -->
             </div><!-- End .header-center -->
@@ -156,7 +162,7 @@
                                     <?php if (isset($_SESSION['isLogin'])) {
                                     } else { ?>
                                         <a href="#" class="btn-remove" title="Remove Product"><i class="fa-solid fa-xmark"></i></a>
-                                        <h4 class="compare-product-title"><a href="login">Login</a></h4>
+                                        <h4 class="compare-product-title"><a href="account">Login</a></h4>
                                     <?php } ?>
                                 </li>
                                 <li class="compare-product">

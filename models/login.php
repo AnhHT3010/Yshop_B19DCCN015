@@ -21,8 +21,8 @@ class login extends model
                 $_SESSION['login'] = $login;
                 header('Location: .');
             }
-        } else {
-            setcookie('msg1', 'Sign in failed', time() + 5);
+        }else {
+            setcookie('msg', 'Tài khoản hoặc mật khẩu không tồn tại !', time() + 5);
             header('Location: account');
         }
     }
@@ -56,7 +56,7 @@ class login extends model
 
                 $status = $this->conn->query($query);
                 if ($status == true) {
-                    setcookie('msg', 'You have successfully registered', time() + 2);
+                    setcookie('success', 'Bạn đã đăng ký thành công', time() + 2);
                 } else {
                     setcookie('msg', 'You are registered unsuccessful', time() + 2);
                 }
@@ -67,7 +67,7 @@ class login extends model
             setcookie('msg', 'Account name or Email already exists', time() + 2);
         }
         session_reset();
-        echo '<script> alert("You have successfully registered");window.location.href="account";</script>';
+        echo '<script>window.location.href="account";</script>';
     }
     function logout()
     {
