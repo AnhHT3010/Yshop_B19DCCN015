@@ -1586,7 +1586,7 @@ blockquote.text-white cite span {
 }
 
 .header-intro-clearance .dropdown.category-dropdown .dropdown-toggle i {
-  font-size: 1rem;
+  font-size: 1.8rem;
   position: absolute;
   right: 1.5rem;
 }
@@ -1599,7 +1599,7 @@ blockquote.text-white cite span {
   font-weight: 400;
   position: absolute;
   margin-left: 0;
-  left: 1.5rem;
+  right: 1.5rem;
 }
 
 .header-intro-clearance .header-menu ul {
@@ -2335,8 +2335,6 @@ blockquote.text-white cite span {
 }
 
 .category-dropdown .dropdown-toggle:after {
-  content: "\f131";
-
   border: none;
   font-size: 2.3rem;
   line-height: 1;
@@ -2371,9 +2369,9 @@ blockquote.text-white cite span {
   background-color: rgb(102, 172, 204);
 }
 
-.category-dropdown:not(.is-on):hover .dropdown-toggle:after {
+/* .category-dropdown:not(.is-on):hover .dropdown-toggle:after {
   content: "\f191";
-}
+} */
 
 .category-dropdown.show .dropdown-toggle {
   color: #1c1b1b;
@@ -2553,14 +2551,14 @@ blockquote.text-white cite span {
 
 .menu-vertical.sf-arrows .sf-with-ul::after {
   display: block;
-
-  content: "\f112";
+  content: "\f061";
   position: absolute;
   right: 1.8rem;
   top: 50%;
   line-height: 1;
   font-size: 1.2rem;
   margin-top: -0.6rem;
+  font-family: 'FontAwesome';
 }
 
 .menu-vertical li > a {

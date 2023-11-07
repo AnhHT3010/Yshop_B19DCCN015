@@ -14,4 +14,12 @@ class model
         require("result.php");
         return $data;
     }
+    function brands($id)
+    {
+        $query =  "SELECT c.TenDM, b.* FROM category as c, brands as b WHERE c.MaDM = b.MaDM and c.MaDM = $id";
+
+        require("result.php");
+
+        return $data;
+    }
 }

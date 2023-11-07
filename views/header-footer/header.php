@@ -108,6 +108,40 @@
     <div class="header-bottom sticky-header">
         <div class="container">
             <div class="header-left">
+                <div class="dropdown category-dropdown">
+                    <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static" title="Browse Categories">
+                        <i class="fa-solid fa-bars" style="left: 3rem;"></i>
+                        Browse Categories
+                        <i class="fa-solid fa-chevron-down pl-1"></i>
+                    </a>
+
+                    <div class="dropdown-menu">
+                        <nav class="side-nav">
+                            <ul class="menu-vertical sf-arrows">
+                                <li class="item-lead"><a href="#">Daily offers</a></li>
+                                <li class="item-lead"><a href="#">Gift Ideas</a></li>
+
+                                <?php
+                                $i = 1;
+                                // print_r($data_brands);
+                                foreach ($data_brands as $row) : ?>
+                                    <li><a href="#"><?= $data_categories[$i - 1]['TenDM'] ?></a>;
+                                        <?php foreach ($row as $value) {
+                                            if ($value != NULL) { ?>
+                                                <ul class="">
+                                                    <?php foreach ($row as $value) { ?>
+                                                        <li><a href=""><?= $value['TenLSP'] ?></a></li>
+                                                    <?php } ?>
+                                                </ul><!-- End .menu-vertical -->
+                                        <?php }
+                                        } ?>
+                                    </li>
+                                <?php $i++;
+                                endforeach; ?>
+                            </ul><!-- End .menu-vertical -->
+                        </nav><!-- End .side-nav -->
+                    </div><!-- End .dropdown-menu -->
+                </div><!-- End .category-dropdown -->
             </div><!-- End .header-left -->
             <div class="header-center">
                 <nav class="main-nav">
@@ -119,18 +153,6 @@
                             echo '</li>';
                         }
                         ?>
-                        <!-- <li class="megamenu-container">
-                            <a href="categoris-smartphone">Smart Phone</a>
-                        </li>
-                        <li class="megamenu-container">
-                            <a href="categoris-laptop">Laptop</a>
-                        </li>
-                        <li class="megamenu-container">
-                            <a href="categoris-tablet">Tablet</a>
-                        </li>
-                        <li class="megamenu-container">
-                            <a href="categoris-smartwacthes">Smart Watches</a>
-                        </li> -->
                     </ul><!-- End .menu -->
                 </nav><!-- End .main-nav -->
             </div><!-- End .header-center -->

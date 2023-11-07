@@ -11,6 +11,10 @@ class HomeController
     {
         $data_slider = $this->home_model->slider();
         $data_categories = $this->home_model->categories();
+        $data_brands = array();
+        for ($i = 1; $i <= count($data_categories); $i++) {
+            $data_brands[$i] = $this->home_model->brands($i);
+        }
         require_once("views/index.php");
     }
 }
