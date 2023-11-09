@@ -58,7 +58,7 @@
                             <li>
                                 <?php if (isset($_SESSION['isLogin_Admin'])) { ?>
                             <li><a href="./?act=taikhoan&xuli=dangxuat">Sign Out</a></li>
-                        <?php } ?>
+                            <?php } ?>
                     </li>
                 </ul>
                 </li>
@@ -87,13 +87,41 @@
                     <form action="./?act=shop" method="post">
 
                         <div class="header-search-wrapper search-wrapper-wide">
-                            <button class="btn btn-primary" type="submit"><i class="fa-brands fa-searchengin"></i></button>
+                            <button class="btn btn-primary" type="submit"><i
+                                    class="fa-brands fa-searchengin"></i></button>
                             <label for="q" class="sr-only">Search</label>
-                            <input type="search" class="form-control" name="keyword" required id="q" placeholder="Search in ...">
+                            <input type="search" class="form-control" name="keyword" required id="q"
+                                placeholder="Search in ...">
                             <div style="flex: 0 0 160px;" class="select-custom">
-                                <select style="background: none; border-radius: 3rem;color: #333; font-weight: 500;" id="cat" name="searchcategory">
-                                    <option value="" style="color: #333; font-weight: 500;">Categories<i class="fa-solid fa-chevron-down pl-1"></i>
-                                    </option>
+                                <i class="fa-solid fa-arrow-down"></i>
+                                <select style="background: none; border-radius: 3rem;color: #333; font-weight: 500;"
+                                    id="cat" name="searchcategory">
+                                    <div>
+                                        <option value="" style="color: #333; font-weight: 500;">Categories</option>
+                                        <i class="fa-solid fa-arrow-down"></i>
+                                    </div>
+                                    <?php
+                                    $i = 1;
+                                    foreach ($data_catalogdetails as $row) : ?>
+                                    <!-- <option style="font-size: 1.5rem; color:#39f" disabled value=""><?= $data_categories[$i - 1]['TenDM'] ?></option> -->
+                                    <?php foreach ($row as $value) { ?>
+                                    <option value="<?= $value['TenLSP'] ?>"><?= $value['TenLSP'] ?></option>
+                                    <?php  } ?>
+                                    <?php $i++;
+                                    endforeach; ?>
+                                    <?php
+                                    $i = 1;
+                                    // print_r($data_brands);
+                                    foreach ($data_brands as $row) : ?>
+                                    <li><a href="#"><?= $data_categories[$i - 1]['TenDM'] ?></a>;
+                                        <?php foreach ($row as $value) {
+                                                if ($value != NULL) { ?>
+                                        <option value="<?= $value['TenLSP'] ?>"><?= $value['TenLSP'] ?></option>
+                                        <?php }
+                                            } ?>
+                                    </li>
+                                    <?php $i++;
+                                    endforeach; ?>
                                 </select>
                             </div><!-- End .select-custom -->
 
@@ -109,7 +137,8 @@
         <div class="container">
             <div class="header-left">
                 <div class="dropdown category-dropdown">
-                    <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static" title="Browse Categories">
+                    <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false" data-display="static" title="Browse Categories">
                         <i class="fa-solid fa-bars" style="left: 3rem;"></i>
                         Browse Categories
                         <i class="fa-solid fa-chevron-down pl-1"></i>
@@ -125,17 +154,17 @@
                                 $i = 1;
                                 // print_r($data_brands);
                                 foreach ($data_brands as $row) : ?>
-                                    <li><a href="#"><?= $data_categories[$i - 1]['TenDM'] ?></a>;
-                                        <?php foreach ($row as $value) {
+                                <li><a href="#"><?= $data_categories[$i - 1]['TenDM'] ?></a>;
+                                    <?php foreach ($row as $value) {
                                             if ($value != NULL) { ?>
-                                                <ul class="">
-                                                    <?php foreach ($row as $value) { ?>
-                                                        <li><a href=""><?= $value['TenLSP'] ?></a></li>
-                                                    <?php } ?>
-                                                </ul><!-- End .menu-vertical -->
-                                        <?php }
+                                    <ul class="">
+                                        <?php foreach ($row as $value) { ?>
+                                        <li><a href=""><?= $value['TenLSP'] ?></a></li>
+                                        <?php } ?>
+                                    </ul><!-- End .menu-vertical -->
+                                    <?php }
                                         } ?>
-                                    </li>
+                                </li>
                                 <?php $i++;
                                 endforeach; ?>
                             </ul><!-- End .menu-vertical -->
@@ -159,46 +188,52 @@
 
             <div class="header-right">
                 <?php if (isset($_SESSION['isLogin_Admin'])) { ?>
-                    <div class="dropdown compare-dropdown">
-                        <a href="AdminConsole" class="dropdown-toggle">
-                            <div class="icon">
-                                <i class="fas fa-users-cog"></i>
-                            </div>
-                            <p>MANAGEMENT PAGE</p>
-                        </a>
-                    </div><!-- End .compare-dropdown -->
+                <div class="dropdown compare-dropdown">
+                    <a href="AdminConsole" class="dropdown-toggle">
+                        <div class="icon">
+                            <i class="fas fa-users-cog"></i>
+                        </div>
+                        <p>MANAGEMENT PAGE</p>
+                    </a>
+                </div><!-- End .compare-dropdown -->
                 <?php } else { ?>
-                    <div class="dropdown compare-dropdown">
-                        <a href="login" class="dropdown-toggle d-flex flex-row justify-content-center align-center" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static" title="Compare Products" aria-label="Compare Products">
-                            <i class="fa-regular fa-user"></i>
-                            <?php if (isset($_SESSION['isLogin'])) { ?>
-                                <p><?= $_SESSION['login']['Ho'] ?> <?= $_SESSION['login']['Ten'] ?></p>
-                            <?php } else { ?>
-                                <p>Login</p>
-                            <?php } ?>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <ul class="compare-products">
-                                <li class="compare-product">
+                <div class="dropdown compare-dropdown">
+                    <a href="login" class="dropdown-toggle d-flex flex-row justify-content-center align-center"
+                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                        data-display="static" title="Compare Products" aria-label="Compare Products">
+                        <i class="fa-regular fa-user"></i>
+                        <?php if (isset($_SESSION['isLogin'])) { ?>
+                        <p><?= $_SESSION['login']['Ho'] ?> <?= $_SESSION['login']['Ten'] ?></p>
+                        <?php } else { ?>
+                        <p>Login</p>
+                        <?php } ?>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <ul class="compare-products">
+                            <li class="compare-product">
 
-                                    <?php if (isset($_SESSION['isLogin'])) {
+                                <?php if (isset($_SESSION['isLogin'])) {
                                     } else { ?>
-                                        <a href="#" class="btn-remove" title="Remove Product"><i class="fa-solid fa-xmark"></i></a>
-                                        <h4 class="compare-product-title"><a href="account">Login</a></h4>
-                                    <?php } ?>
-                                </li>
-                                <li class="compare-product">
-                                    <a href="./personal" class="btn-remove" title="Remove Product"><i class="fa-solid fa-xmark"></i></a>
-                                    <h4 class="compare-product-title"><a href="personal">My account</a></h4>
-                                </li>
-                            </ul>
+                                <a href="#" class="btn-remove" title="Remove Product"><i
+                                        class="fa-solid fa-xmark"></i></a>
+                                <h4 class="compare-product-title"><a href="account">Login</a></h4>
+                                <?php } ?>
+                            </li>
+                            <li class="compare-product">
+                                <a href="./personal" class="btn-remove" title="Remove Product"><i
+                                        class="fa-solid fa-xmark"></i></a>
+                                <h4 class="compare-product-title"><a href="personal">My account</a></h4>
+                            </li>
+                        </ul>
 
-                            <div class="compare-actions">
-                                <a href="./?act=taikhoan&xuli=dangxuat" class="btn btn-outline-primary-2"><span>Logout</span><i class="icon-long-arrow-right"></i></a>
-                            </div>
-                        </div><!-- End .dropdown-menu -->
+                        <div class="compare-actions">
+                            <a href="./?act=taikhoan&xuli=dangxuat"
+                                class="btn btn-outline-primary-2"><span>Logout</span><i
+                                    class="icon-long-arrow-right"></i></a>
+                        </div>
+                    </div><!-- End .dropdown-menu -->
                     <?php } ?>
-                    </div>
+                </div>
             </div><!-- End .container -->
         </div><!-- End .header-bottom -->
 </header><!-- End .header -->

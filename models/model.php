@@ -22,4 +22,10 @@ class model
 
         return $data;
     }
+    function random($a, $b)
+    {
+        $query = "SELECT * FROM product WHERE ThoiGian IS NOT NULL ORDER BY RAND() LIMIT $a,$b";
+        require("result.php");
+        return $data;
+    }
 }

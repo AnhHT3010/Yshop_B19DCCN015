@@ -15,7 +15,7 @@ class login extends model
             if ($login['MaQuyen'] == 2) {
                 $_SESSION['isLogin_Admin'] = true;
                 $_SESSION['login'] = $login;
-                header('Location: AdminConsole');
+                header('Location: Admin');
             } else {
                 $_SESSION['isLogin'] = true;
                 $_SESSION['login'] = $login;

@@ -8,4 +8,5 @@ class home extends model
         require("result.php");
         return $data;
     }
+    
 }

@@ -15,6 +15,7 @@ class HomeController
         for ($i = 1; $i <= count($data_categories); $i++) {
             $data_brands[$i] = $this->home_model->brands($i);
         }
+        $data_recommendationforyou = $this->home_model->random(0, 12);
         require_once("views/index.php");
     }
 }

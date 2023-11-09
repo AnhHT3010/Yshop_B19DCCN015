@@ -1,0 +1,8 @@
+RewriteEngine On
+RewriteRule "banner" "?mod=banner"
+RewriteRule "danhmuc" "?mod=danhmuc"
+RewriteRule "nguoidung" "?mod=nguoidung"
+RewriteRule "loaisanpham" "?mod=loaisanpham"
+RewriteRule "hoadon" "?mod=hoadon"
+RewriteRule "sanpham" "?mod=sanpham"
+RewriteRule "admin" "Admin"

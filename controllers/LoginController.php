@@ -9,6 +9,11 @@ class LoginContronler
     }
     function login()
     {
+        $data_categories = $this->login_model->categories();
+        $data_brands = array();
+        for ($i = 1; $i <= count($data_categories); $i++) {
+            $data_brands[$i] = $this->login_model->brands($i);
+        }
         require_once("views/index.php");
     }
     function dangky()
