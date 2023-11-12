@@ -1,42 +1,3 @@
-<script>
-    function readURL(input, thumbimage) {
-        if (input.files && input.files[0]) { //Sử dụng  cho Firefox - chrome
-            var reader = new FileReader();
-            reader.onload = function(e) {
-                $("#thumbimage").attr('src', e.target.result);
-            }
-            reader.readAsDataURL(input.files[0]);
-        } else { // Sử dụng cho IE
-            $("#thumbimage").attr('src', input.value);
-
-        }
-        $("#thumbimage").show();
-        $('.filename').text($("#uploadfile").val());
-        $('.Choicefile').css('background', '#14142B');
-        $('.Choicefile').css('cursor', 'default');
-        $(".removeimg").show();
-        $(".Choicefile").unbind('click');
-
-    }
-    $(document).ready(function() {
-        $(".Choicefile").bind('click', function() {
-            $("#uploadfile").click();
-
-        });
-        $(".removeimg").click(function() {
-            $("#thumbimage").attr('src', '').hide();
-            $("#myfileupload").html('<input type="file" id="uploadfile"  onchange="readURL(this);" />');
-            $(".removeimg").hide();
-            $(".Choicefile").bind('click', function() {
-                $("#uploadfile").click();
-            });
-            $('.Choicefile').css('background', '#14142B');
-            $('.Choicefile').css('cursor', 'pointer');
-            $(".filename").text("");
-        });
-    })
-</script>
-
 <style>
     .app-menu__item.active5 {
         background: #c6defd;
@@ -115,15 +76,16 @@
         margin-top: -2px;
     }
 </style>
+
 <main id="main" class="main">
 
     <div class="pagetitle">
-        <h1>Thêm danh mục</h1>
+        <h1>Sửa hãng</h1>
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href=".">Pages</a></li>
-                <li class="breadcrumb-item"><a href="danhmuc">Danh mục</a></li>
-                <li class="breadcrumb-item active">Thêm danh mục</li>
+                <li class="breadcrumb-item"><a href="danhmuc">Hãng</a></li>
+                <li class="breadcrumb-item active">Sửa hãng</li>
             </ol>
             <div id="clock"></div>
         </nav>
@@ -132,15 +94,11 @@
     <div class="row">
         <div class="col-md-12">
             <div class="tile">
-                <h3 class="tile-title">Tạo mới danh mục</h3>
+                <h3 class="tile-title">Chỉnh sửa hãng</h3>
                 <div class="tile-body">
                     <div class="row element-button">
                         <div class="col-sm-2">
-                            <a href="?mod=loaisanpham&act=add" class="btn btn-add btn-sm"><i class="bx bxs-comment-add"></i> Thêm thương hiệu</a>
-                        </div>
-                        <div class="col-sm-2">
-                            <a href="?mod=sanpham&act=add" class="btn btn-add btn-sm"><i class="bx bxs-comment-add"></i>
-                                Thêm sản phẩm mới</a>
+                            <a href="?mod=thuonghieu&act=add" class="btn btn-add btn-sm"><i class="bx bxs-comment-add"></i> Thêm hãng mới</a>
                         </div>
                     </div>
 
@@ -149,24 +107,36 @@
                             <strong>Thông báo</strong> <?= $_COOKIE['msg'] ?>
                         </div>
                     <?php } ?>
-                    <form class="row" action="./?mod=danhmuc&act=store" method="POST" role="form" enctype="multipart/form-data">
-                        <div class="form-group col-md-6">
-                            <label class="control-label">Mã sản phẩm </label>
-                            <input class="form-control" type="number" name="MaDM" placeholder="">
+
+                    <form class="row" action="./?mod=thuonghieu&act=update" method="POST" role="form" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <input class="form-control" value="<?= $data_brand['MaLSP'] ?>" type="hidden" name="MaLSP" placeholder="">
                         </div>
-                        <div class="form-group col-md-6">
-                            <label class="control-label">Tên danh mục</label>
-                            <input class="form-control" name="TenDM" type="text">
+                        <div class="form-group col-md-12">
+                            <label class="col-sm-2 col-form-label">Chọn Danh Mục</label>
+                            <div class="col-sm-10">
+                                <select class="form-select" name="MaDM" aria-label="Default select example">
+                                    <?php foreach ($data as $row) { ?>
+                                        <option <?= ($data_brand['MaDM'] == $row['MaDM']) ? 'selected' : '' ?> value="<?= $row['MaDM'] ?>"><?= $row['TenDM'] ?></option>
+                                    <?php } ?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-10">
+                            <label class="control-label">Tên hãng</label>
+                            <input class="form-control" name="TenLSP" value="<?= $data_brand['TenLSP'] ?>" type="text">
                         </div>
 
-                        <div class="form-group col-md-12">
-                            <label class="control-label">Ảnh danh mục</label>
+                        <div class="form-group col-md-10">
+                            <label class="control-label">Ảnh hãng</label>
                             <div id="myfileupload">
-                                <input type="hidden" id="uploadfile" name="HinhAnh" />
+                                <input type="hidden" id="uploadfile" name="HinhAnh" value="<?= $data_brand['HinhAnh'] ?>" />
                             </div>
                             <div id="thumbbox">
-                                <img height="600" width="600" alt="Thumb image" id="thumbimage" style="display: none" />
-                                <a class="removeimg" href="javascript:"></a>
+                                <img height="auto" class="img-cover" id="thumbimage" width="200px" alt="Thumb image" src="<?= $data_brand['HinhAnh'] ?>" />
+                                <a class="corner-mark" id="new-image" onclick="removeImage(this)">
+                                    <div>&times;</div>
+                                </a>
                             </div>
                             <div id="boxchoice">
                                 <a href="javascript:" class="Choicefile" id="Choicefile"><i class="bx bxs-image-add"></i> Chọn
@@ -174,7 +144,16 @@
                                 <p style="clear:both"></p>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-success w-25 m-auto">Thêm</button>
+                        <div class="form-group col-md-12">
+                            <label class="control-label">Mô tả</label>
+                            <textarea class="form-control" name="MoTa" id="summernote"><?= $data_brand['MoTa'] ?></textarea>
+                            <script>
+                                CKEDITOR.replace('summernote');
+                            </script>
+                        </div>
+                        <div class="form-group col-md-12 mt-5"> <!-- Thêm class mt-3 để tạo khoảng cách top -->
+                            <button type="submit" class="btn">Cập nhật</button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -184,6 +163,7 @@
     const choiceFile = document.getElementById("Choicefile");
     const thumbimage = document.getElementById("thumbimage")
     const uploadfile = document.getElementById("uploadfile")
+    const newImage = document.getElementById("new-image")
     choiceFile.addEventListener("click", () => {
         console.log("click")
         const client = filestack.init("AdJg69GnASJiAP5DB1CYsz");
@@ -192,8 +172,18 @@
                 thumbimage.style.display = "block"; // Hiển thị phần tử thumbimage
                 thumbimage.src = file.url; // Đặt đường dẫn ảnh cho thuộc tính src
                 uploadfile.value = file.url;
+                newImage.style.display = "flex";
             }
         }
         client.picker(options).open();
     })
+
+    function removeImage(element) {
+        // Lấy phần tử cha (div.image-container) của nút xóa
+        var imageContainer = element.parentNode;
+        // Xóa phần tử cha khỏi DOM
+        imageContainer.parentNode.removeChild(imageContainer);
+        uploadfile.value = "";
+        thumbimage.src = "";
+    }
 </script>

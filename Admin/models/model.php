@@ -22,6 +22,8 @@ class Model
     }
     function store($data)
     {
+        echo($data);
+        print_r($data);
         $f = "";
         $v = "";
         foreach ($data as $key => $value) {
@@ -35,10 +37,10 @@ class Model
         $status = $this->conn->query($query);
 
         if ($status == true) {
-            setcookie('msg', 'More success', time() + 2);
+            setcookie('msg', 'Thêm thành công' , time() + 2);
             header('Location: ?mod=' . $this->route);
         } else {
-            setcookie('msg', 'Add failed', time() + 2);
+            setcookie('msg', 'Lỗi thêm', time() + 2);
             header('Location: ?mod=' . $this->route . '&act=add');
         }
     }
@@ -55,16 +57,16 @@ class Model
         }
         $v = trim($v, ",");
 
-
+        
         $query = "UPDATE $this->table SET  $v   WHERE $this->contens = " . $data[$this->contens];
 
         $result = $this->conn->query($query);
 
         if ($result == true) {
-            setcookie('msg', 'Browse successfully', time() + 2);
+            setcookie('msg', 'Cập nhật thành công !', time() + 2);
             header('Location: ?mod=' . $this->route);
         } else {
-            setcookie('msg', 'Update failed', time() + 2);
+            setcookie('msg', 'Lỗi cập nhật', time() + 2);
             header('Location: ?mod=' . $this->route . '&act=edit&id=' . $data[$this->contens]);
         }
     }

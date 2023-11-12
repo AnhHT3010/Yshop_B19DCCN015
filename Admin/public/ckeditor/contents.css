@@ -21,9 +21,9 @@ body
 
 .cke_editable
 {
+	resize: none !important;
 	font-size: 13px;
 	line-height: 1.6;
-
 	/* Fix for missing scrollbars with RTL texts. (#10488) */
 	word-wrap: break-word;
 }
@@ -60,7 +60,7 @@ a
 ol,ul,dl
 {
 	/* IE7: reset rtl list margin. (#7334) */
-	*margin-right: 0px;
+	margin-right: 0px;
 	/* Preserved spaces for list items with text direction different than the list. (#6249,#8049)*/
 	padding: 0 40px;
 }

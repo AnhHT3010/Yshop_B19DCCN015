@@ -1,3 +1,120 @@
+<script>
+    function readURL(input, thumbimage) {
+        if (input.files && input.files[0]) { //Sử dụng  cho Firefox - chrome
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $("#thumbimage").attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        } else { // Sử dụng cho IE
+            $("#thumbimage").attr('src', input.value);
+
+        }
+        $("#thumbimage").show();
+        $('.filename').text($("#uploadfile").val());
+        $('.Choicefile').css('background', '#14142B');
+        $('.Choicefile').css('cursor', 'default');
+        $(".removeimg").show();
+        $(".Choicefile").unbind('click');
+
+    }
+    $(document).ready(function() {
+        $(".Choicefile").bind('click', function() {
+            $("#uploadfile").click();
+
+        });
+        $(".removeimg").click(function() {
+            $("#thumbimage").attr('src', '').hide();
+            $("#myfileupload").html('<input type="file" id="uploadfile"  onchange="readURL(this);" />');
+            $(".removeimg").hide();
+            $(".Choicefile").bind('click', function() {
+                $("#uploadfile").click();
+            });
+            $('.Choicefile').css('background', '#14142B');
+            $('.Choicefile').css('cursor', 'pointer');
+            $(".filename").text("");
+        });
+    })
+</script>
+
+<style>
+    .app-menu__item.active5 {
+        background: #c6defd;
+        text-decoration: none;
+        color: rgb(22 22 72);
+        box-shadow: none;
+        border: 1px solid rgb(22 22 72);
+    }
+
+    .Choicefile {
+        display: block;
+        background: #14142B;
+        border: 1px solid #fff;
+        color: #fff;
+        width: 150px;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+        padding: 5px 0px;
+        border-radius: 5px;
+        font-weight: 500;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .Choicefile:hover {
+        text-decoration: none;
+        color: white;
+    }
+
+    #uploadfile,
+    .removeimg {
+        display: none;
+    }
+
+    #thumbbox {
+        position: relative;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .removeimg {
+        height: 25px;
+        position: absolute;
+        background-repeat: no-repeat;
+        top: 5px;
+        left: 5px;
+        background-size: 25px;
+        width: 25px;
+        /* border: 3px solid red; */
+        border-radius: 50%;
+
+    }
+
+    .removeimg::before {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        content: '';
+        border: 1px solid red;
+        background: red;
+        text-align: center;
+        display: block;
+        margin-top: 11px;
+        transform: rotate(45deg);
+    }
+
+    .removeimg::after {
+        /* color: #FFF; */
+        /* background-color: #DC403B; */
+        content: '';
+        background: red;
+        border: 1px solid red;
+        text-align: center;
+        display: block;
+        transform: rotate(-45deg);
+        margin-top: -2px;
+    }
+</style>
 <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
@@ -225,113 +342,109 @@
     </nav><!-- End Icons Navigation -->
 
 </header><!-- End Header -->
+<main id="main" class="main">
 
-<!-- ======= Sidebar ======= -->
-<aside id="sidebar" class="sidebar">
+    <div class="pagetitle">
+        <h1>Thêm thương hiệu</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href=".">Pages</a></li>
+                <li class="breadcrumb-item"><a href="danhmuc">Danh mục</a></li>
+                <li class="breadcrumb-item active">Thêm thương hiệu</li>
+            </ol>
+            <div id="clock"></div>
+        </nav>
+    </div><!-- End Page Title -->
 
-    <ul class="sidebar-nav" id="sidebar-nav">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="tile">
+                <h3 class="tile-title">Tạo mới thương hiệu</h3>
+                <div class="tile-body">
+                    <div class="row element-button">
+                        <div class="col-sm-2">
+                            <a href="?mod=loaisanpham&act=add" class="btn btn-add btn-sm"><i class="bx bxs-comment-add"></i>Thêm hãng mới</a>
+                        </div>
+                        <div class="col-sm-2">
+                            <a href="?mod=sanpham&act=add" class="btn btn-add btn-sm"><i class="bx bxs-comment-add"></i>
+                                Thêm sản phẩm mới</a>
+                        </div>
+                    </div>
 
-        <li class="nav-item">
-            <a id="home-link" class="nav-link" href="index.php">
-                <i class="bi bi-grid"></i>
-                <span>Dashboard</span>
-            </a>
-        </li><!-- End Dashboard Nav -->
-        <li class="nav-heading">Pages</li>
+                    <?php if (isset($_COOKIE['msg'])) { ?>
+                        <div class="alert alert-warning">
+                            <strong>Thông báo</strong> <?= $_COOKIE['msg'] ?>
+                        </div>
+                    <?php } ?>
+                    <form class="row" action="./?mod=thuonghieu&act=store" method="POST" role="form" enctype="multipart/form-data">
+                        <div class="form-group col-md-6">
+                            <label class="col-sm-2 col-form-label">Chọn Danh Mục</label>
+                            <div class="col-sm-10">
+                                <select class="form-select" name="MaDM" aria-label="Default select example">
+                                    <?php foreach ($data as $row) { ?>
+                                        <option value="<?= $row['MaDM'] ?>"><?= $row['TenDM'] ?></option>
+                                    <?php } ?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="control-label">Tên thương hiệu</label>
+                            <input class="form-control" name="TenLSP" type="text">
+                        </div>
 
-        <li class="nav-item">
-            <a id="nguoidung-link" class="nav-link collapsed" href="nguoidung">
-                <i class="bi bi-person"></i>
-                <span>Quản Lý Người Dùng</span>
-            </a>
-        </li>
+                        <div class="form-group col-md-10">
+                            <label class="control-label">Ảnh thương hiệu</label>
+                            <div id="myfileupload">
+                                <input type="hidden" id="uploadfile" name="HinhAnh" />
+                            </div>
+                            <div id="thumbbox">
+                                <img height="auto" class="img-cover" id="thumbimage" width="200px" alt="Thumb image" />
+                                <a class="corner-mark" id="new-image" onclick="removeImage(this)">
+                                    <div>&times;</div>
+                                </a>
+                            </div>
+                            <div id="boxchoice">
+                                <a href="javascript:" class="btn btn-dark" id="Choicefile"><i class="bx bxs-image-add"></i> Chọn
+                                    ảnh</a>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label class="control-label">Mô tả</label>
+                            <textarea class="form-control" name="MoTa" id="summernote"></textarea>
+                            <script>
+                                CKEDITOR.replace('summernote');
+                            </script>
+                        </div>
+                        <div class="form-group col-md-12 mt-5"> <!-- Thêm class mt-3 để tạo khoảng cách top -->
+                            <button type="submit" class="btn">Thêm</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+</main>
 
-        <li class="nav-item">
-            <a id="danhmuc-link" class="nav-link collapsed" href="danhmuc">
-                <i class="bx bxs-purchase-tag"></i>
-                <span>Quản Lý Danh Mục</span>
-            </a>
-        </li>
-
-        <li class="nav-item">
-            <a id="thuonghieu-link" class="nav-link collapsed" href="thuonghieu">
-                <i class="bx bxs-purchase-tag"></i>
-                <span>Quản lý Thương Hiệu</span>
-            </a>
-        </li>
-
-        <li class="nav-item">
-            <a id="sanpham-link" class="nav-link collapsed" href="sanpham">
-                <i class="bx bxs-purchase-tag"></i>
-                <span>Quản lý Sản Phẩm</span>
-            </a>
-        </li>
-
-        <li class="nav-item">
-            <a id="donhang-link" class="nav-link collapsed" href="donhang">
-                <i class="bx bxl-shopify"></i>
-                <span>Quản lý Đơn Hàng</span>
-            </a>
-        </li>
-
-        <li class="nav-item">
-            <a id="quangcao-link" class="nav-link collapsed" href="quangcao">
-                <i class="bx bx-slideshow"></i>
-                <span>Quản lý Quảng Cáo</span>
-            </a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="pages-error-404.html">
-                <i class="bi bi-dash-circle"></i>
-                <span>Error 404</span>
-            </a>
-        </li><!-- End Error 404 Page Nav -->
-
-    </ul>
-
-</aside><!-- End Sidebar-->
 <script>
-    console.log("Zo")
-    var allLinks = document.querySelectorAll(".nav-link");
+    const choiceFile = document.getElementById("Choicefile");
+    const thumbimage = document.getElementById("thumbimage")
+    const uploadfile = document.getElementById("uploadfile")
+    choiceFile.addEventListener("click", () => {
+        const client = filestack.init("AdJg69GnASJiAP5DB1CYsz");
+        const options = {
+            onFileUploadFinished(file) {
+                thumbimage.style.display = "block"; // Hiển thị phần tử thumbimage
+                thumbimage.src = file.url; // Đặt đường dẫn ảnh cho thuộc tính src
+                uploadfile.value = file.url;
+            }
+        }
+        client.picker(options).open();
+    })
 
-    // Loại bỏ class "collapsed" cho tất cả các liên kết
-    allLinks.forEach(function(link) {
-        link.classList.add("collapsed");
-    });
-    let localActive = localStorage.getItem("active")
-    if (!localActive) {
-        console.log("set")
-        localStorage.setItem("active", "home-link")
+    function removeImage(element) {
+        // Lấy phần tử cha (div.image-container) của nút xóa
+        var imageContainer = element.parentNode;
+        // Xóa phần tử cha khỏi DOM
+        imageContainer.parentNode.removeChild(imageContainer);
+        uploadfile.value = "";
+        thumbimage.src = "";
     }
-    localActive = localStorage.getItem("active")
-    var clickedLink = document.getElementById(localActive);
-    if (clickedLink) {
-        clickedLink.classList.remove("collapsed");
-    }
-
-    // Sử dụng hàm handleNavLinkClick cho các liên kết khác
-    document.getElementById("thuonghieu-link").addEventListener("click", function() {
-        localStorage.setItem("active", "thuonghieu-link")
-    });
-
-    document.getElementById("danhmuc-link").addEventListener("click", function() {
-        localStorage.setItem("active", "danhmuc-link")
-    });
-    document.getElementById("sanpham-link").addEventListener("click", function() {
-        localStorage.setItem("active", "sanpham-link")
-    });
-    document.getElementById("nguoidung-link").addEventListener("click", function() {
-        localStorage.setItem("active", "nguoidung-link")
-    });
-    document.getElementById("donhang-link").addEventListener("click", function() {
-        localStorage.setItem("active", "donhang-link")
-    });
-    document.getElementById("quangcao-link").addEventListener("click", function() {
-        localStorage.setItem("active", "quangcao-link")
-    });
-    document.getElementById("home-link").addEventListener("click", function() {
-        localStorage.setItem("active", "home-link")
-    });
-    // Thêm các liên kết khác nếu cần
 </script>

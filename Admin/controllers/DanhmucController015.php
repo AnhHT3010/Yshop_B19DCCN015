@@ -1,6 +1,6 @@
 <?php
 require_once("./models/danhmuc.php");
-class DanhmucController
+class DanhmucController015
 {
     var $danhmuc_model;
     function __construct()
@@ -20,7 +20,6 @@ class DanhmucController
     }
     public function store()
     {
-        echo $_POST['HinhAnh'];
         $data = array(
             'MaDM' => $_POST['MaDM'],
             'TenDM' => $_POST['TenDM'],

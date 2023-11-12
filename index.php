@@ -9,7 +9,7 @@ switch ($act) {
         break;
     case 'taikhoan':
         $act = isset($_GET['xuli']) ? $_GET['xuli'] : 'taikhoan';
-        require_once('controllers/LoginController.php');
+        require_once('controllers/LoginController015.php');
         $controller_obj = new LoginContronler();
         if ((isset($_SESSION['isLogin']) && $_SESSION['isLogin'] == true)) {
             switch ($act) {

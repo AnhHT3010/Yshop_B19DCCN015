@@ -25,6 +25,8 @@
     <link href="public/vendor/quill/quill.bubble.css" rel="stylesheet">
     <link href="public/vendor/remixicon/remixicon.css" rel="stylesheet">
     <link href="public/vendor/simple-datatables/style.css" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="public/ckeditor/ckeditor.js"></script>
 
     <!-- Template Main CSS File -->
     <link href="public/css/style.css" rel="stylesheet">
@@ -67,6 +69,44 @@
                     break;
             }
             break;
+        case 'thuonghieu':
+            switch ($act) {
+                case 'list':
+                    require_once("./views/thuonghieu/list.php");
+                    break;
+                case 'add':
+                    require_once("./views/thuonghieu/add.php");
+                    break;
+                case 'edit':
+                    require_once("./views/thuonghieu/edit.php");
+                    break;
+                case 'detail':
+                    require_once("./views/thuonghieu/detail.php");
+                    break;
+                default:
+                    require_once("./views/thuonghieu/list.php");
+                    break;
+            }
+            break;
+        case 'sanpham':
+            switch ($act) {
+                case 'list':
+                    require_once("./views/sanpham/list.php");
+                    break;
+                case 'add':
+                    require_once("./views/sanpham/add.php");
+                    break;
+                case 'edit':
+                    require_once("./views/sanpham/edit.php");
+                    break;
+                case 'detail':
+                    require_once("./views/sanpham/detail.php");
+                    break;
+                default:
+                    require_once("./views/sanpham/list.php");
+                    break;
+            }
+            break;
         default:
             require_once("./views/bangdieukhien/bangdieukhien.php");
             break;
@@ -81,7 +121,7 @@
     <script src="public/vendor/simple-datatables/simple-datatables.js"></script>
     <script src="public/vendor/tinymce/tinymce.min.js"></script>
     <script src="public/vendor/php-email-form/validate.js"></script>
-
+    <script src="public/ckeditor/ckeditor.js"></script>
     <!-- Template Main JS File -->
     <script src="public/js/main.js"></script>
 

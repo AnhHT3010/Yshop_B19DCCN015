@@ -1,7 +1,7 @@
 <?php 
     require_once("./models/login.php");
     echo "Ok";
-    class LoginController {
+    class LoginController015 {
         var $login_model;
         public function __construct()
         {

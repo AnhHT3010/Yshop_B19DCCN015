@@ -1245,3 +1245,54 @@ h6 {
 .btn-add:hover{
   background: #9df99d !important;
 }
+#thumbold, #thumbbox {
+  margin-top: 3rem;
+  position: relative;
+  display: inline-block;
+}
+
+.img-cover {
+  height: auto;
+  width: 300px;
+  display: block; /* Show the image */
+}
+
+.corner-mark {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+  width: 45px;
+  transform: translate(-50%, -50%);
+  height: 45px;
+  background-color: rgba(1, 41, 112, 0.1);
+  border-radius: 50%;
+  color: rgb(255, 77, 77);
+  position: absolute;
+  top: 0;
+  font-size: 2rem;
+}
+.corner-mark:hover{
+  color: red;
+  cursor: pointer;
+}
+
+.form-group.col-md-12 button[type="submit"] {
+  font-weight: 700;
+  font-family: Arial, Helvetica, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 1.2rem; /* Điều chỉnh giá trị để thay đổi kích thước font */
+}
+.form-group.col-md-12 button[type="submit"] {
+  width: 20%;
+  background-color: #28a745; /* Màu nền của nút */
+  color: #fff; /* Màu chữ của nút */
+  border: none; /* Loại bỏ đường viền */
+  border-radius: 5px; /* Bo tròn góc của nút */
+  padding: 10px 20px; /* Điều chỉnh kích thước nút */
+  font-size: 1.2rem; /* Điều chỉnh kích thước font */
+  transition: background-color 0.3s ease; /* Hiệu ứng chuyển đổi màu nền */
+}
+
+.form-group.col-md-12 button[type="submit"]:hover {
+  background-color: #218838; /* Màu nền khi di chuột qua */
+}

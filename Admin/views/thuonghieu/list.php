@@ -10,11 +10,11 @@
 <main id="main" class="main">
 
     <div class="pagetitle">
-        <h1>Danh sách danh mục</h1>
+        <h1>Danh sách thương hiệu</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Pages</a></li>
-                <li class="breadcrumb-item active">Danh mục</li>
+                <li class="breadcrumb-item"><a href="index.php">Pages</a></li>
+                <li class="breadcrumb-item active">Thương hiệu</li>
             </ol>
             <div id="clock"></div>
         </nav>
@@ -29,8 +29,8 @@
                         <div class="row element-button">
                             <div class="col-sm-2">
 
-                                <a class="btn btn-add btn-sm" href="./?mod=danhmuc&act=add" title="Thêm"><i class="bx bxs-add-to-queue"></i>
-                                    Thêm mới danh mục</a>
+                                <a class="btn btn-add btn-sm" href="./?mod=thuonghieu&act=add" title="Thêm"><i class="bx bxs-add-to-queue"></i>
+                                    Thêm hãng mới</a>
                             </div>
                         </div>
                         <?php if (isset($_COOKIE['msg'])) { ?>
@@ -43,7 +43,7 @@
                             <thead>
                                 <tr>
                                     <th scope="col">Mã Code</th>
-                                    <th scope="col">Tên danh mục</th>
+                                    <th scope="col">Tên thương hiệu</th>
                                     <th scope="col">Ảnh</th>
                                     <th scope="col">Tính năng</th>
                                 </tr>
@@ -52,16 +52,16 @@
                                 <?php foreach ($data as $row) { ?>
                                     <tr>
 
-                                        <td><?= $row['MaDM'] ?></td>
-                                        <td><?= $row['TenDM'] ?></td>
+                                        <td><?= $row['MaLSP'] ?></td>
+                                        <td><?= $row['TenLSP'] ?></td>
                                         <td>
                                             <img src="<?= $row['HinhAnh'] ?>" height="60px">
                                         </td>
                                         <td>
-                                            <a href="./?mod=danhmuc&act=detail&id=<?= $row['MaDM'] ?>" class="btn btn-success"><i class="bx bx-search d-flex" style="font-size: 20px"></i></a>
+                                            <a href="./?mod=thuonghieu&act=detail&id=<?= $row['MaLSP'] ?>" class="btn btn-success"><i class="bx bx-search d-flex" style="font-size: 20px"></i></a>
                                             <?php if (isset($_SESSION['isLogin_Admin']) && $_SESSION['isLogin_Admin'] == true) { ?>
-                                                <a href="./?mod=danhmuc&act=edit&id=<?= $row['MaDM'] ?>" class="btn btn-warning"><i class="bx bx-message-square-edit d-flex" style="font-size: 20px"></i></a>
-                                                <a href="./?mod=danhmuc&act=delete&id=<?= $row['MaDM'] ?>" onclick="return confirm('Do you really want to delete?');" type="button" class="btn btn-danger" style="color:#d4e9f7 !important"><i class="bx bxs-trash d-flex" style="font-size: 20px"></i></a>
+                                                <a href="./?mod=thuonghieu&act=edit&id=<?= $row['MaLSP'] ?>" class="btn btn-warning"><i class="bx bx-message-square-edit d-flex" style="font-size: 20px"></i></a>
+                                                <a href="./?mod=thuonghieu&act=delete&id=<?= $row['MaLSP'] ?>" onclick="return confirm('Do you really want to delete?');" type="button" class="btn btn-danger" style="color:#d4e9f7 !important"><i class="bx bxs-trash d-flex" style="font-size: 20px"></i></a>
                                             <?php } ?>
                                         </td>
                                     </tr>

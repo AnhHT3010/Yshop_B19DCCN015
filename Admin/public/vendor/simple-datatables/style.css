@@ -116,14 +116,17 @@
 	border-spacing: 0;
 	border-collapse: separate;
 }
-
-.datatable-table > tbody > tr > td,
 .datatable-table > tbody > tr > th,
-.datatable-table > tfoot > tr > td,
-.datatable-table > tfoot > tr > th,
-.datatable-table > thead > tr > td,
-.datatable-table > thead > tr > th {
+.datatable-table > thead > tr > th, 
+.datatable-table > tfoot > tr > th{
 	vertical-align: top;
+	padding: 8px 10px;
+}
+.datatable-table > tbody > tr > td,
+.datatable-table > tfoot > tr > td,
+.datatable-table > thead > tr > td
+{
+	vertical-align: middle;
 	padding: 8px 10px;
 }
 
