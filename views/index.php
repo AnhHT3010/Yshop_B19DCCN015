@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YShop - điện thoại, laptop, tablet, phụ kiện chính hãng</title>
+    <link rel="shortcut icon" type="image/ico" href="../public/assets/images/logo_icon.ico" />
     <!-- Favicon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="apple-touch-icon" sizes="20x20" href="public/assets/images/logo-footer.png">
@@ -17,20 +18,19 @@
     <meta name="msapplication-config" content="public/assets/images/icons/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="public/assets/vendor/line-awesome/line-awesome/line-awesome/css/line-awesome.min.css">
-    <link rel="shortcut icon" type="image/ico" href="../public/assets/images/logo_icon.ico" />
     <!-- Plugins CSS File -->
     <link rel="stylesheet" href="public/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="public/assets/css/plugins/owl-carousel/owl.carousel.css">
     <link rel="stylesheet" href="public/assets/css/plugins/magnific-popup/magnific-popup.css">
     <link rel="stylesheet" href="public/assets/css/plugins/jquery.countdown.css">
+    <!-- Main CSS File -->
+    <link rel="stylesheet" href="public/assets/css/style.css">
     <!-- Main CDN -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
     <link rel="stylesheet" href="public/assets/css/plugins/nouislider/nouislider.css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <link rel="stylesheet" href="public/assets/css/scrollbar.css">
-    <!-- Main CSS File -->
-    <link rel="stylesheet" href="public/assets/css/style.css">
 </head>
 
 <body>
@@ -40,8 +40,8 @@
 
         <?php require_once("header-footer/footer.php"); ?>
     </div>
-    <!-- Plugins JS File -->
     <script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
+    <!-- Plugins JS File -->
     <script src="public/assets/js/jquery.min.js"></script>
     <script src="public/assets/js/bootstrap.bundle.min.js"></script>
     <script src="public/assets/js/jquery.hoverIntent.min.js"></script>

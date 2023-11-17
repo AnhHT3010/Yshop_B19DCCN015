@@ -106,8 +106,22 @@ if (isset($_SESSION['isLogin_Admin']) && $_SESSION['isLogin_Admin'] == true) {
             break;
         }
         break;
-        default:
-          header('location: ?mod=login');
-          break;
+      case 'taikhoan':
+        require_once('./controllers/LoginController015.php');
+        $controller_obj = new LoginController015();
+        switch ($act) {
+          case 'dangxuat':
+            $controller_obj->dangxuat();
+            break;
+          default:
+            header('location: ?act=error');
+            break;
+        }
+        break;
+      default:
+        header('location: ?mod=login');
+        break;
       }
+}else{
+  header('location: ../');
 }?>

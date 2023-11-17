@@ -209,7 +209,7 @@ a {
 
 a:hover,
 a:focus {
-  color: #bf4051;
+  color: #0056b3;
   text-decoration: none;
 }
 
@@ -218,7 +218,7 @@ a:focus {
 }
 
 .text-primary {
-  color: #197ae2 !important;
+  color: #0056b3 !important;
 }
 
 .text-secondary {
@@ -1536,7 +1536,7 @@ blockquote.text-white cite span {
 }
 
 .header-intro-clearance .header-bottom .header-right i {
-  color: #333;
+  color: rgb(102, 172, 204);
   font-size: 1.8rem;
   letter-spacing: -0.01em;
   margin-right: 1.5rem;
@@ -2478,9 +2478,9 @@ blockquote.text-white cite span {
   left: 100%;
   z-index: 1002;
   margin-top: 0;
-  background-color: #1c1b1b;
-  box-shadow: 5px 10px 16px rgba(51, 51, 51, 0.05),
-    -5px 10px 16px rgba(51, 51, 51, 0.05);
+  background-color: #fffffff5;
+  box-shadow: 5px 11px 16px rgba(51, 51, 51, 0.05), -5px 10px 16px rgb(0 0 0 / 5%);
+
 }
 
 .menu-vertical ul:before,
@@ -2562,9 +2562,9 @@ blockquote.text-white cite span {
 }
 
 .menu-vertical li > a {
-  color: #666;
+  color: #101010;
   font-weight: 300;
-  font-size: 1.3rem;
+  font-size: 1.6rem;
   letter-spacing: 0;
   padding-top: 0.6rem;
   padding-bottom: 0.6rem;
@@ -6174,8 +6174,6 @@ p {
 
 .breadcrumb-item + .breadcrumb-item:before {
   color: #999999;
-  content: "\f112";
-
   padding-right: 0.7rem;
   font-size: 1.1rem;
   vertical-align: middle;
@@ -6206,7 +6204,8 @@ p {
   display: flex;
   flex-direction: column;
   text-align: center;
-  background: #079cff;
+  border-radius: 5px;
+  background: #079cff94;
   padding: 7px;
 }
 
@@ -6249,13 +6248,16 @@ p {
 }
 
 .title-link {
+  color: rgb(39, 39, 42);
   font-weight: 500;
   transition: all 0.3s ease;
 }
 
-.title-link:hover,
-.title-link:focus {
-  box-shadow: 0 1px 0 0 rgb(102, 172, 204);
+.all-rcm{
+  display: flex;
+  align-items: center;
+  font-size: 1.6rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .title-link i {
@@ -6982,9 +6984,9 @@ p {
 .btn-primary:not(:disabled):not(.disabled):active,
 .btn-primary:not(:disabled):not(.disabled).active,
 .show > .btn-primary.dropdown-toggle {
-  color: #1c1b1b;
-  background-color: #a6c76c;
-  border-color: #a6c76c;
+  color: whitesmoke;
+  background-color: transparent !important;
+  border-color: rgb(102, 172, 204);
   box-shadow: none;
 }
 
@@ -7732,6 +7734,7 @@ p {
 }
 
 .product-body {
+  min-height: 105px;
   position: relative;
   padding: 1.8rem 2rem;
   transition: all 0.35s ease;
@@ -7789,8 +7792,13 @@ p {
   margin-bottom: 1.3rem;
 }
 
+.product-sale{
+  padding: 0 1.8rem 2rem;
+  font-size: 1.5rem;
+  color: rgb(128, 128, 137);
+}
 .new-price {
-  color: #ef837b;
+  color: rgb(255, 66, 78);
   margin-right: 0.8rem;
 }
 
@@ -7832,14 +7840,17 @@ p {
 
 .product-label.label-sale {
   color: #1c1b1b;
-  background-color: #ef837b;
+  background-color: #ffeb00e0;
 }
 
 .product-label.label-new {
-  font-size: medium;
-  font-weight: 500;
   color: #ffffff;
-  background-color: #a6c76c;
+  background-color: #4f71b1ed;
+}
+
+.product-label.label-sale-hot {
+  color: #ffffff;
+  background-color: #fe2626d1;
 }
 
 .product-label.label-top {
@@ -7912,10 +7923,24 @@ p {
   line-height: 1;
 }
 
-.ratings:before,
+/* Tạo sao rating */
+.star-rating {
+    font-size: 16px;
+}
+
+/* Thiết lập sao màu và kích thước */
+.fa-star {
+    color: #ffd700; /* Màu sao đã chọn */
+}
+
+/* Sao đã chọn */
+.checked {
+    color: #ffd700;
+}
+/* .ratings:before,
 .ratings-val:before {
   content: "\f318""\f318""\f318""\f318""\f318";
-}
+} */
 
 .ratings-val {
   position: absolute;
@@ -7931,7 +7956,7 @@ p {
 }
 
 .ratings-text {
-  color: #cccccc;
+  color: #125be5;
   letter-spacing: -0.01em;
   margin-left: 0.8rem;
 }
@@ -8883,10 +8908,6 @@ p {
   border: 0.2rem solid #fc4173;
   border-radius: 0.5rem;
   color: #fc4173;
-}
-
-.product.product-10 .btn-cart span {
-  text-transform: uppercase;
 }
 
 .product.product-10 .btn-cart::before {
@@ -10438,6 +10459,8 @@ small.form-text {
 
 .cta-text {
   padding-top: 0.5rem;
+  font-weight: 700;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .cta-text .cta-title {
@@ -12512,11 +12535,10 @@ button:focus {
   text-align: center;
   width: 4rem;
   height: 4rem;
-  color: #777;
+  color: #014dff8f;
   font-weight: normal;
   font-size: 2rem;
   line-height: 1;
-  background-color: #1c1b1b;
   box-shadow: 2px 6px 16px rgba(51, 51, 51, 0.05);
   transition: all 0.35s ease;
 }
@@ -12569,7 +12591,6 @@ button:focus {
 .product-gallery-item:before {
   opacity: 0;
   visibility: hidden;
-  border: 0.1rem solid rgb(102, 172, 204);
 }
 
 .product-gallery-item:after {
@@ -12885,6 +12906,7 @@ button:focus {
 }
 
 .product-details-action .btn-cart {
+  background-color: transparent;
   padding: 1rem 1.5rem;
   max-width: 198px;
   color: rgb(102, 172, 204);
@@ -12893,8 +12915,7 @@ button:focus {
 
 .product-details-action .btn-cart span {
   font-size: 1.8rem;
-  color: #fff6f6;
-  text-transform: uppercase;
+  color: rgb(102, 172, 204);
   box-shadow: none;
   transition: box-shadow 0.35s ease, color 0s ease;
 }
@@ -12905,9 +12926,9 @@ button:focus {
 
 .product-details-action .btn-cart:hover,
 .product-details-action .btn-cart:focus {
-  color: #1c1b1b;
+  color: rgb(28 159 219);
   border-color: rgb(102, 172, 204);
-  background-color: rgb(102, 172, 204);
+  background-color: rgb(243 249 249 / 83%);
 }
 
 .details-action-wrapper {
@@ -13015,16 +13036,20 @@ button:focus {
 .product-details-tab .tab-content .tab-pane {
   padding: 2.7rem 3rem;
 }
-
+.product-desc-content p{
+  font-family: 'Times New Roman', Times, serif;
+}
 .product-desc-content h2 {
-  font-weight: 400;
+  font-weight: 700;
   font-size: 2.4rem;
   letter-spacing: -0.01em;
   margin-bottom: 1.8rem;
+  margin-top: 1.8rem;
 }
 
 .product-desc-content h3 {
-  font-weight: 400;
+  margin-top: 1.8rem;
+  font-weight: 700;
   font-size: 1.8rem;
   letter-spacing: -0.01em;
   margin-bottom: 1.8rem;
@@ -16333,7 +16358,7 @@ button:focus {
   padding: 0.85rem 2.6rem;
   height: auto;
   border-color: #dadada;
-  background-color: #1c1b1b;
+  background-color: #e3eff9;
   margin: 0;
 }
 
@@ -18638,7 +18663,8 @@ button:focus {
 }
 
 .icon-minus:before {
-  content: "\f28e";
+  content: "\f068";
+  font-family: 'Font Awesome 5 Free';
 }
 
 .icon-shopping-bag:before {
@@ -19915,4 +19941,3 @@ button:focus {
   cursor: pointer;
   color: black;
 }
-/*# sourceMappingURL=style.css.map */

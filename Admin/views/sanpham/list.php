@@ -32,7 +32,7 @@
                         <!-- Table with stripped rows -->
                         <table class="table datatable" style="--bs-table-bg: none;">
                             <thead>
-                                <tr style="background-color: red !important;">
+                                <tr>
                                     <th scope="col">Mã Code</th>
                                     <th scope="col">Tên sản phẩm</th>
                                     <th>Ảnh</th>

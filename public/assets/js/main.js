@@ -236,11 +236,11 @@ $(document).ready(function () {
     function quantityInputs() {
         if ( $.fn.inputSpinner ) {
             $("input[type='number']").inputSpinner({
-                decrementButton: '<i class="icon-minus"></i>',
-                incrementButton: '<i class="icon-plus"></i>',
-                groupClass: 'input-spinner',
-                buttonsClass: 'btn-spinner',
-                buttonsWidth: '26px'
+              decrementButton: '<i class="fa-solid fa-minus"></i>',
+              incrementButton: '<i class="fa-solid fa-plus"></i>',
+              groupClass: "input-spinner",
+              buttonsClass: "btn-spinner",
+              buttonsWidth: "26px",
             });
         }
     }
@@ -257,16 +257,19 @@ $(document).ready(function () {
     function owlCarousels($wrap, options) {
         if ( $.fn.owlCarousel ) {
             var owlSettings = {
-                items: 1,
-                loop: true,
-                margin: 0,
-                responsiveClass: true,
-                nav: true,
-                navText: ['<i class="icon-angle-left">', '<i class="icon-angle-right">'],
-                dots: true,
-                smartSpeed: 400,
-                autoplay: false,
-                autoplayTimeout: 15000
+              items: 1,
+              loop: true,
+              margin: 0,
+              responsiveClass: true,
+              nav: true,
+              navText: [
+                '<i class="fa-solid fa-chevron-left"></i>',
+                '<i class="fa-solid fa-chevron-right"></i>',
+              ],
+              dots: true,
+              smartSpeed: 400,
+              autoplay: false,
+              autoplayTimeout: 15000,
             };
             if (typeof $wrap == 'undefined') {
                 $wrap = $('body');

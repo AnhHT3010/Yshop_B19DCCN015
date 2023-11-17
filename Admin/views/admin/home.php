@@ -122,6 +122,7 @@
     <script src="public/vendor/tinymce/tinymce.min.js"></script>
     <script src="public/vendor/php-email-form/validate.js"></script>
     <script src="public/ckeditor/ckeditor.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <!-- Template Main JS File -->
     <script src="public/js/main.js"></script>
 

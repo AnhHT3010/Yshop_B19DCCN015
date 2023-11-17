@@ -27,7 +27,7 @@
                 echo '<img src="public/assets/images/banners/' . $item['Anh'] . '" alt="' . $item['TenBN'] . '">';
                 if ($item['TenBN'] != "") {
                     echo '<div class="carousel-caption">';
-                    echo '<h1 class = "text-white  p-3 w-50 mx-auto rounded" style = "background-color: rgba(0, 0, 0, 0.5);">' . $item['TenBN'] . '</h1>'; // Hiển thị tên ở đây
+                    echo '<h3 class = "text-white  p-3 w-50 mx-auto rounded" style = "background-color: rgba(0, 0, 0, 0.5);">' . $item['TenBN'] . '</h3>'; // Hiển thị tên ở đây
                     echo '</div>';
                 }
                 echo '</div>';

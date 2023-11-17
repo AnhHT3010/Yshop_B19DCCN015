@@ -22,8 +22,6 @@ class Model
     }
     function store($data)
     {
-        echo($data);
-        print_r($data);
         $f = "";
         $v = "";
         foreach ($data as $key => $value) {

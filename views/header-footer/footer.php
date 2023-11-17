@@ -5,58 +5,57 @@
             <div class="row">
                 <div class="col-sm-6 col-lg-3">
                     <div class="widget widget-about">
-                        <img src="public/assets/images/logo.webpư" class="footer-logo" alt="Footer Logo" width="105"
-                            height="25">
+                        <img src="./public/assets/images/logo.png" class="footer-logo" alt="Footer Logo" width="205" height="25">
                         <p>Praesent dapibus, neque id cursus ucibus, tortor neque egestas augue, eu vulputate
                             magna eros eu erat. </p>
 
                         <div class="widget-call">
-                            <i class="icon-phone"></i>
-                            Got Question? Call us 24/7
-                            <a href="tel:#">+84 866 171 367</a>
+                            <i class="fa-solid fa-square-phone"></i>
+                            Có câu hỏi? Gọi cho chúng tôi 24/7<br>
+                            <a href="tel:#">+84 867 781 612</a>
                         </div><!-- End .widget-call -->
                     </div><!-- End .widget about-widget -->
                 </div><!-- End .col-sm-6 col-lg-3 -->
 
                 <div class="col-sm-6 col-lg-3">
                     <div class="widget">
-                        <h4 class="widget-title">Useful Links</h4><!-- End .widget-title -->
+                        <h4 class="widget-title">Liên kết hữu ích</h4><!-- End .widget-title -->
 
                         <ul class="widget-list">
-                            <li><a href="about">About Meta</a></li>
-                            <li><a href="#">Our Services</a></li>
-                            <li><a href="#">How to shop on Meta</a></li>
-                            <li><a href="faq">FAQ</a></li>
-                            <li><a href="contact">Contact us</a></li>
+                            <li><a href="about">Giới thiệu về YShop</a></li>
+                            <li><a href="#">Dịch vụ của chúng tôi</a></li>
+                            <li><a href="#">Cách mua sắm trên Meta</a></li>
+                            <li><a href="faq">Câu hỏi thường gặp</a></li>
+                            <li><a href="contact">Liên hệ chúng tôi</a></li>
                         </ul><!-- End .widget-list -->
                     </div><!-- End .widget -->
                 </div><!-- End .col-sm-6 col-lg-3 -->
 
                 <div class="col-sm-6 col-lg-3">
                     <div class="widget">
-                        <h4 class="widget-title">Customer Service</h4><!-- End .widget-title -->
+                        <h4 class="widget-title">Dịch vụ khách hàng</h4><!-- End .widget-title -->
 
                         <ul class="widget-list">
-                            <li><a href="#">Payment Methods</a></li>
-                            <li><a href="#">Money-back guarantee!</a></li>
-                            <li><a href="#">Returns</a></li>
-                            <li><a href="#">Shipping</a></li>
-                            <li><a href="#">Terms and conditions</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Phương thức thanh toán</a></li>
+                            <li><a href="#">Hoàn trả lại tiền!</a></li>
+                            <li><a href="#">Trả lại</a></li>
+                            <li><a href="#">Đang chuyển hàng</a></li>
+                            <li><a href="#">Các điều khoản và điều kiện</a></li>
+                            <li><a href="#">Chính sách bảo mật</a></li>
                         </ul><!-- End .widget-list -->
                     </div><!-- End .widget -->
                 </div><!-- End .col-sm-6 col-lg-3 -->
 
                 <div class="col-sm-6 col-lg-3">
                     <div class="widget">
-                        <h4 class="widget-title">My Account</h4><!-- End .widget-title -->
+                        <h4 class="widget-title">Tài khoản của tôi</h4><!-- End .widget-title -->
 
                         <ul class="widget-list">
-                            <li><a href="account">Sign In</a></li>
-                            <li><a href="cart">View Cart</a></li>
-                            <li><a href="wishlist">My Wishlist</a></li>
-                            <li><a href="personal">Track My Order</a></li>
-                            <li><a href="#">Help</a></li>
+                            <li><a href="account">Đăng nhập</a></li>
+                            <li><a href="cart">Xem giỏ hàng</a></li>
+                            <li><a href="wishlist">Sản phẩm yêu thích</a></li>
+                            <li><a href="personal">Theo dõi đơn hàng của tôi</a></li>
+                            <li><a href="#">Giúp đỡ</a></li>
                         </ul><!-- End .widget-list -->
                     </div><!-- End .widget -->
                 </div><!-- End .col-sm-6 col-lg-3 -->

@@ -1,6 +1,5 @@
 <?php 
     require_once("./models/login.php");
-    echo "Ok";
     class LoginController015 {
         var $login_model;
         public function __construct()
@@ -9,9 +8,13 @@
         }
     
         public function admin()
-        {   
-            echo "VÀO ĐÂY RỒI";
+        {
+            $this->login_model -> adminProfile();
             require_once("./views/admin/home.php");
         }
-
+        
+        public function dangxuat()
+        {
+            $this->login_model->logout();
+        }
     }

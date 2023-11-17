@@ -1,6 +1,6 @@
 <?php
 require_once("models/home.php");
-class HomeController
+class HomeController015
 {
     var $home_model;
     public function __construct()
@@ -16,6 +16,7 @@ class HomeController
             $data_brands[$i] = $this->home_model->brands($i);
         }
         $data_recommendationforyou = $this->home_model->random(0, 12);
+        $top_rated = $this->home_model->liveviews();
         require_once("views/index.php");
     }
 }
