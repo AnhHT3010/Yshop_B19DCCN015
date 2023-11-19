@@ -76,7 +76,12 @@
                             <div id="myfileupload">
                                 <input type="hidden" id="uploadfile" name="AnhDaiDien" />
                             </div>
-                            <div id="thumbbox"></div>
+                            <div id="thumbbox">
+                                <img height="auto" class="img-cover" id="thumbimage" width="200px" alt="Thumb image" />
+                                <a class="corner-mark" id="new-image" onclick="removeImage(this)">
+                                    <div>&times;</div>
+                                </a>
+                            </div>
                             <div id="boxchoice">
                                 <a href="javascript:" class="btn btn-dark" id="Choicefile"><i class="bx bxs-image-add"></i> Chọn
                                     ảnh</a>
@@ -212,9 +217,10 @@
     choiceFile.addEventListener("click", () => {
         const options = {
             onFileUploadFinished(file) {
+                uploadfile.value = file.url;
+                console.log(uploadfile.value);
                 thumbimage.style.display = "block"; // Hiển thị phần tử thumbimage
                 thumbimage.src = file.url; // Đặt đường dẫn ảnh cho thuộc tính src
-                uploadfile.value = file.url;
             }
         }
         client.picker(options).open();

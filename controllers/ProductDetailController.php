@@ -1,11 +1,14 @@
 <?php
 require_once("models/productdetail.php");
+require_once("models/cart.php");
 class ProductDetailController
 {
     var $detail_model;
+    var $cart_model;
     public function __construct()
     {
         $this->detail_model = new ProductDetail();
+        $this->cart_model = new Cart();
     }
     public function show_detail()
     {
@@ -21,6 +24,9 @@ class ProductDetailController
         if ($data != NULL) {
             // $data_products = $this->detail_model->related_products(0, 10, $data['MaDM']);
             $category_where = $this->detail_model->categories_where($data['MaDM']);
+        }
+        if (isset($_SESSION['id_ND']) && $_SESSION['id_ND'] && !empty($_SESSION['id_ND'])) {
+            $data_cart = $this->cart_model->detail_cart_item($_SESSION['id_ND']);
         }
         // print_r($category_where);
         // print_r($data);

@@ -97,7 +97,7 @@
                             <?php } else { ?>
                                 <div class="product-details-action">
                                     <div class="details-action-wrapper">
-                                        <h3 style="color: #39f; font-size: 20px;"><span>Out of stock now</span></h3>
+                                        <h3 style="color: #39f; font-size: 20px;"><span>Hiện đã hết hàng</span></h3>
                                     </div><!-- End .details-action-wrapper -->
                                 </div><!-- End .product-details-action -->
                             <?php } ?>
@@ -115,7 +115,7 @@
                 </div><!-- End .row -->
             </div><!-- End .product-details-top -->
             <div class="product-desc-content">
-                <h3 style="">Product Information</h3>
+                <h3>Product Information</h3>
                 <p style="font-family: 'Times New Roman', Times, serif;"><?= $data['MoTa'] ?></p>
             </div><!-- End .product-desc-content -->
         </div><!-- End .container -->

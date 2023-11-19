@@ -14,6 +14,9 @@ switch ($act) {
     case 'shop':
         require_once("shop/shop.php");
         break;
+    case 'cart':
+        require_once("cart/cart.php");
+        break;
     default:
         require_once("error.php");
         break;

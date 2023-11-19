@@ -1,11 +1,14 @@
 <?php
 require_once("models/shop.php");
+require_once("models/cart.php");
 class ShopController015
 {
     var $shop_model;
+    var $cart_model;
     public function __construct()
     {
         $this->shop_model = new Shop();
+        $this->cart_model = new Cart();
     }
     function list()
     {
@@ -42,6 +45,9 @@ class ShopController015
                     $test = 0;
                 }
             }
+        } 
+        if (isset($_SESSION['id_ND']) && $_SESSION['id_ND'] && !empty($_SESSION['id_ND'])) {
+            $data_cart = $this->cart_model->detail_cart_item($_SESSION['id_ND']);
         }
         // if (isset($_GET['sp']) and isset($_GET['loai'])) {
         //     $data_loai = $this->shop_model->chitiet_loai($_GET['loai'], $_GET['sp']);

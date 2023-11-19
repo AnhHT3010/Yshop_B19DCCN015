@@ -79,6 +79,7 @@ class SanphamController015
                 );
                 $this->sanpham_model->storeImage($data_image);
             }
+            $this->sanpham_model->add_views($lastInsertedID);
         } else {
             die('Invalid JSON data: The decoded value is not an array.');
         }
@@ -87,14 +88,6 @@ class SanphamController015
     {
         $id = $_GET['id'];
         $this->sanpham_model->delete($id);
-        $this->sanpham_model->delete_view($id);
-        $this->sanpham_model->delete_allcolor($id);
-    }
-    public function delete_Color()
-    {
-        $id = $_GET['id'];
-        $name = $_GET['name'];
-        $this->sanpham_model->delete_Color($id, $name);
     }
     public function edit()
     {

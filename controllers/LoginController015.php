@@ -1,11 +1,14 @@
 <?php
 require_once("models/login.php");
+require_once("models/cart.php");
 class LoginContronler
 {
     var $login_model;
+    var $cart_model;
     function __construct()
     {
         $this->login_model = new login();
+        $this->cart_model = new Cart();
     }
     function login()
     {
@@ -13,6 +16,9 @@ class LoginContronler
         $data_brands = array();
         for ($i = 1; $i <= count($data_categories); $i++) {
             $data_brands[$i] = $this->login_model->brands($i);
+        }
+        if (isset($_SESSION['id_ND']) && $_SESSION['id_ND'] && !empty($_SESSION['id_ND'])) {
+            $data_cart = $this->cart_model->detail_cart_item($_SESSION['id_ND']);
         }
         require_once("views/index.php");
     }

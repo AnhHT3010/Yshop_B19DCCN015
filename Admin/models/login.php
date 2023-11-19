@@ -24,6 +24,7 @@ class login
         if (isset($_SESSION['isLogin'])) {
             unset($_SESSION['isLogin']);
             unset($_SESSION['login']);
+            unset($_SESSION['id_ND']);
         }
         header('location: ../');
     }

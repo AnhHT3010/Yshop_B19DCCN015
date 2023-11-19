@@ -158,7 +158,7 @@
                     <div class="col-5 col-md-3 col-lg-2">
                         <div class="product product-2">
                             <figure class="product-media">
-                                <?php if ($item['TrangThai'] == 1) { ?>
+                                <?php if ($item['TrangThai'] == 1 or $item['TrangThai'] == 0) { ?>
                                     <span class="product-label label-circle label-new">Mới</span>
                                 <?php  } elseif ($item['TrangThai'] == 2) { ?>
                                     <span class="product-label label-circle label-sale-hot">Giá rẻ</span>
@@ -174,7 +174,7 @@
                                 </div><!-- End .product-action -->
 
                                 <div class="product-action">
-                                    <a href="#" class="btn-product btn-cart" title="Thêm vào giỏ  hàng"><i class="fa-solid fa-cart-shopping px-1"></i></a>
+                                    <a href="./?act=cart&xuli=add&id=<?= $item['MaSP'] ?>&checked=1" class="btn-product btn-cart" title="Thêm vào giỏ  hàng"><i class="fa-solid fa-cart-shopping px-1"></i></a>
                                     <a href="<?= $item['MaSP'] ?>.html" class="btn-product btn-quickview" title="Xem chi tiết"><i class="fa-solid fa-eye"></i></a>
                                 </div><!-- End .product-action -->
                             </figure><!-- End .product-media -->
@@ -184,7 +184,7 @@
                                 <!-- End .product-title -->
                                 <div class="product-price">
                                     <?php if ($item['SoLuong'] == 0) { ?>
-                                        <span class="old-price">Out of stock now</span>
+                                        <span class="old-price">Hiện đã hết hàng</span>
                                     <?php } else { ?>
                                         <span class="new-price">$ <?= number_format($item['DonGia']) ?></span>
                                     <?php } ?>
@@ -355,7 +355,7 @@
                                 </div><!-- End .product-action -->
 
                                 <div class="product-action">
-                                    <a href="#" class="btn-product btn-cart" title="Thêm vào giỏ  hàng"><i class="fa-solid fa-cart-shopping px-1"></i></a>
+                                    <a href="./?act=cart&xuli=add&id=<?= $item['MaSP'] ?>&checked=1" class="btn-product btn-cart" title="Thêm vào giỏ  hàng"><i class="fa-solid fa-cart-shopping px-1"></i></a>
                                     <a href="<?= $item['MaSP'] ?>.html ?>" class="btn-product btn-quickview" title="Xem chi tiết"><i class="fa-solid fa-eye"></i></a>
                                 </div><!-- End .product-action -->
                             </figure><!-- End .product-media -->
@@ -365,7 +365,7 @@
                                 <!-- End .product-title -->
                                 <div class="product-price">
                                     <?php if ($item['SoLuong'] == 0) { ?>
-                                        <span class="old-price">Out of stock now</span>
+                                        <span class="old-price">Hiện đã hết hàng</span>
                                     <?php } else { ?>
                                         <span class="new-price">$ <?= number_format($item['DonGia']) ?></span>
                                     <?php } ?>
@@ -403,7 +403,7 @@
                                 <!-- End .product-title -->
                                 <div class="product-price">
                                     <?php if ($item['SoLuong'] == 0) { ?>
-                                        <span class="old-price">Out of stock now</span>
+                                        <span class="old-price">Hiện đã hết hàng</span>
                                     <?php } else { ?>
                                         <span class="new-price">$ <?= number_format($item['DonGia']) ?></span>
                                     <?php } ?>
@@ -441,7 +441,7 @@
                                 <!-- End .product-title -->
                                 <div class="product-price">
                                     <?php if ($item['SoLuong'] == 0) { ?>
-                                        <span class="old-price">Out of stock now</span>
+                                        <span class="old-price">Hiện đã hết hàng</span>
                                     <?php } else { ?>
                                         <span class="new-price">$ <?= number_format($item['DonGia']) ?></span>
                                     <?php } ?>

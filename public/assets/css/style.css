@@ -636,7 +636,7 @@ blockquote.text-white cite span {
 
 .header {
   width: 100%;
-  background-color: #079cff;
+  background-color: #0152ff;
 }
 
 .header .container,
@@ -687,7 +687,7 @@ blockquote.text-white cite span {
 }
 
 .header-top a {
-  color: black;
+  color: white;
 }
 
 .header-top a:hover,
@@ -912,16 +912,18 @@ blockquote.text-white cite span {
   display: block;
   width: 300px;
   z-index: 100;
+  max-height: 500px;
+  overflow-y: scroll;
   font-size: 1.3rem;
   z-index: 1001;
   border: none;
   margin: 1px 0 0;
   padding: 2.2rem 3rem 2.5rem;
-  border-radius: 0;
+  border-radius: 10;
   border: none;
   box-shadow: 5px 10px 16px rgba(51, 51, 51, 0.05),
     -5px 10px 16px rgba(51, 51, 51, 0.05);
-  background-color: #1c1b1b;
+  background-color: #002f67;
   visibility: hidden;
   opacity: 0;
   transition: all 0.25s;
@@ -953,7 +955,7 @@ blockquote.text-white cite span {
   justify-content: center;
   width: 2.4rem;
   height: 2.4rem;
-  color: #cccccc;
+  color: rgb(102, 172, 204);
   font-size: 1.3rem;
   line-height: 1;
   text-align: center;
@@ -964,7 +966,7 @@ blockquote.text-white cite span {
 .cart-dropdown .btn-remove:focus,
 .compare-dropdown .btn-remove:hover,
 .compare-dropdown .btn-remove:focus {
-  color: #000000;
+  color: #0056b3;
 }
 
 .cart-dropdown:hover .dropdown-toggle,
@@ -1075,8 +1077,8 @@ blockquote.text-white cite span {
   line-height: 1;
   margin-left: 0.2rem;
   margin-top: 0.1rem;
-  color: #1c1b1b;
-  background-color: rgb(102, 172, 204);
+  color: #ffffff;
+  background-color: rgb(255 0 0);
 }
 
 .cart-dropdown .dropdown-cart-products {
@@ -1133,15 +1135,16 @@ blockquote.text-white cite span {
   display: flex;
   align-items: flex-end;
   font-size: 1.8rem;
-  font-weight: 400;
+  font-weight: 700;
   text-transform: uppercase;
-  color: #666;
+  color: #f54d4df5;
   margin-bottom: 1.1rem;
 }
 
 .dropdown-cart-total .cart-total-price {
   font-size: 1.5rem;
   margin-left: auto;
+  font-weight: 700;
 }
 
 .dropdown-cart-action {
@@ -1684,7 +1687,7 @@ blockquote.text-white cite span {
 .header-intro-clearance .cart-dropdown .dropdown-toggle,
 .header-intro-clearance .wishlist .dropdown-toggle,
 .header-intro-clearance .account .dropdown-toggle {
-  color: #333;
+  color: rgba(255, 250, 240, 0.851);
 }
 
 @media screen and (min-width: 992px) {
@@ -2026,7 +2029,7 @@ blockquote.text-white cite span {
 }
 
 .menu > li > a {
-  color: #333;
+  color: #ffffff;
   font-weight: 500;
   font-size: 1.8rem;
   letter-spacing: -0.01em;
@@ -2356,7 +2359,7 @@ blockquote.text-white cite span {
 .category-dropdown .dropdown-toggle:hover,
 .category-dropdown .dropdown-toggle:focus {
   color: #1c1b1b;
-  background-color: rgb(102, 172, 204);
+  background-color: #f9ff00e0;
   outline: none !important;
 }
 
@@ -2366,7 +2369,7 @@ blockquote.text-white cite span {
 
 .category-dropdown:not(.is-on):hover .dropdown-toggle {
   color: #1c1b1b !important;
-  background-color: rgb(102, 172, 204);
+  background-color: #f9ff00e0;
 }
 
 /* .category-dropdown:not(.is-on):hover .dropdown-toggle:after {
@@ -3433,7 +3436,7 @@ p {
 .header-4 .header-top {
   font-weight: 400;
   font-size: 1.8rem;
-  background-color: #079cff;
+  background-color: #0152ff;
   margin-bottom: 0;
   letter-spacing: -0.01em;
 }
@@ -3503,21 +3506,22 @@ p {
 
 .header-4 .cart-dropdown:not(:hover):not(.show) .dropdown-toggle,
 .header-4 .compare-dropdown:not(:hover):not(.show) .dropdown-toggle {
-  color: #000000;
+  color: #ffffff;
 }
 
 .header-4 .wishlist-link:not(:hover):not(:focus),
 .header-4 .search-toggle:not(:hover):not(:focus),
 .header-4 .mobile-menu-toggler {
-  color: #000000;
+  color: #ffffff;
 }
 
 .header-4.header-intro-clearance .header-search .header-search-wrapper {
   border-color: #ccc;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
 .header-4 .header-bottom {
-  background-color: #079cff;
+  background-color: #0756ff;
 }
 
 .header-4 .header-bottom .container::before {
@@ -3530,7 +3534,7 @@ p {
 }
 
 .header-4 .dropdown.category-dropdown {
-  background-color: #079cff;
+  background-color: #f9ff00;
 }
 
 .header-4 .dropdown.category-dropdown .dropdown-toggle:not(:hover):not(:focus) {
@@ -6999,8 +7003,8 @@ p {
 
 .btn-secondary {
   color: #1c1b1b;
-  background-color: #a6c76c;
-  border-color: #a6c76c;
+  background-color: #ffffff;
+  border-color: #000000;
   box-shadow: none;
 }
 
@@ -7572,7 +7576,6 @@ p {
   position: relative;
   margin-bottom: 1rem;
   transition: box-shadow 0.35s ease;
-  background-color: #1c1b1b;
 }
 
 .owl-carousel .product {
@@ -16138,7 +16141,7 @@ button:focus {
 }
 
 .product-col .product-title a {
-  color: #fff6f6;
+  color: #252121;
 }
 
 .product-col .product-title a:hover,
@@ -16160,7 +16163,7 @@ button:focus {
   justify-content: center;
   width: 3rem;
   height: 3rem;
-  color: #cccccc;
+  color: #6c5959;
   background-color: transparent;
   font-size: 1.7rem;
   line-height: 1;
@@ -16171,7 +16174,7 @@ button:focus {
 
 .btn-remove:hover,
 .btn-remove:focus {
-  color: #333;
+  color: #ff2d2de6;
 }
 
 .action-col .dropdown-menu {
@@ -16436,7 +16439,7 @@ button:focus {
 }
 
 .table.table-summary .summary-shipping-row label {
-  color: #fff6f6;
+  color: #1e1e1e;
 }
 
 .table.table-summary .summary-shipping-row td {
@@ -19907,20 +19910,27 @@ button:focus {
   position: fixed; /* Đặt phần tử ở vị trí cố định */
   top: 300px; /* Khoảng cách từ trên xuống */
   right: 10px; /* Khoảng cách từ phải sang trái */
+  z-index: 9999;
 }
 
 .alert-msg strong {
-  color: black; /* Màu của đoạn văn bản in đậm */
+  color: white; /* Màu của đoạn văn bản in đậm */
 }
 .toast-msg{
-  background-color: #ebaeae; /* Màu nền của thông báo */
   border: 1px solid rgb(102, 172, 204); /* Đường viền của thông báo */
   padding: 10px; /* Khoảng cách giữa nội dung và biên của thông báo */
   border-radius: 5px; /* Bo tròn góc */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Đổ bóng cho thông báo */
   z-index: 9999; /* Đảm bảo hiển thị trên các phần tử khác */
-  color: black;
   animation: slideInLeft ease .3s, fadeOut linear 1s 3s forwards;
+}
+.toast-info{
+  color: black;
+  background-color: rgb(102, 172, 204) !important; /* Màu nền của thông báo */
+}
+.toast-error{
+  background-color: #BE3144  !important; /* Màu nền của thông báo */
+  color: white;
 }
 @keyframes slideInLeft{
   from {
@@ -19940,4 +19950,37 @@ button:focus {
 #cancel:hover {
   cursor: pointer;
   color: black;
+}
+
+.btn-unstyled{
+  border: none;
+  background-color: transparent;
+  color: rgb(102, 172, 204);
+}
+.btn-agree{
+  color: #fa2828; 
+  border-color: #fa2828;
+  background-color: transparent;
+  transition: all 0.1s ease 0.1s;
+}
+.btn-agree:hover{
+  color: white; 
+  border-color: white;
+  background-color: #fa2828;
+}
+.btn-cancel {
+  color: #1c1b1b;
+  background-color: #ffffff;
+  border-color: #000000;
+  box-shadow: none;
+}
+.btn-cancel:hover {
+  background-color: #f5f3f3fc
+}
+.modal-title{
+  font-family:Arial, Helvetica, sans-serif;
+}
+.btn-disabled{
+  background-color: #333333;
+  
 }

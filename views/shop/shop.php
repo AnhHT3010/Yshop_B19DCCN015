@@ -3,7 +3,19 @@
 <link rel="stylesheet" href="public/assets/css/demos/demo-13.css">
 <link rel="stylesheet" href="public/assets/css/choose.css">
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
 <main class="main">
+    <?php if (isset($_COOKIE['msg'])) { ?>
+        <div class="alert alert-msg">
+            <div class="d-flex justify-content-around align-items-center toast-msg toast-error">
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <div class="mx-2">
+                    <strong>Notify:</strong> <?= $_COOKIE['msg'] ?>
+                </div>
+                <i class="fa-solid fa-x" id="cancel"></i>
+            </div>
+        </div>
+    <?php } ?>
     <div class="page-content">
         <div class="container">
             <div class="row">
@@ -109,7 +121,7 @@
                                     <div class="col-3 col-md-2 col-xl-2 sanpham">
                                         <div class="product">
                                             <figure class="product-media">
-                                                <?php if ($items['TrangThai'] == 1) { ?>
+                                                <?php if ($items['TrangThai'] == 1 || $items['TrangThai'] == 0) { ?>
                                                     <span class="product-label label-circle label-new">Mới</span>
                                                 <?php  } elseif ($items['TrangThai'] == 2) { ?>
                                                     <span class="product-label label-circle label-sale-hot">Giá rẻ</span>
@@ -124,7 +136,7 @@
                                                 </div><!-- End .product-action -->
 
                                                 <div class="product-action">
-                                                    <a href="?act=cart&xuli=add&id=<?= $items['MaSP'] ?>" class="btn-product btn-cart" title="Thêm vào giỏ  hàng"><i class="fa-solid fa-cart-shopping px-1"></i></a>
+                                                    <a href="./?act=cart&xuli=add&id=<?= $items['MaSP'] ?>&checked=1" class="btn-product btn-cart" title="Thêm vào giỏ  hàng"><i class="fa-solid fa-cart-shopping px-1"></i></a>
                                                     <a href="<?= $items['MaSP'] ?>.html ?>" class="btn-product btn-quickview" title="Xem chi tiết"><i class="fa-solid fa-eye"></i></a>
                                                 </div><!-- End .product-action -->
                                             </figure><!-- End .product-media -->

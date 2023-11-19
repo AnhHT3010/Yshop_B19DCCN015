@@ -11,7 +11,6 @@ class login extends model
     {
         $query = "SELECT * FROM `user` WHERE TaiKhoan = '" . $data['taikhoan'] . "' AND matkhau = '" . $data['matkhau'] . "' AND trangthai = 1";
         $login = $this->conn->query($query)->fetch_assoc();
-        print_r($login);
         if ($login !== NULL) {
             if ($login['MaQuyen'] == 2) {
                 $_SESSION['isLogin_Admin'] = true;
@@ -19,13 +18,14 @@ class login extends model
                 header('Location: Admin');
             } else {
                 $_SESSION['id_ND'] = $login['MaND'];
+                $_SESSION['Avatar'] = $login['HinhAnh'];
                 $_SESSION['isLogin'] = true;
                 $_SESSION['login'] = $login;
-                // header('Location: .');
+                header('Location: .');
             }
         }else {
             setcookie('msg', 'Tài khoản hoặc mật khẩu không tồn tại !', time() + 5);
-            // header('Location: account');
+            header('Location: account');
         }
     }
     function account()
@@ -80,6 +80,7 @@ class login extends model
         if (isset($_SESSION['isLogin'])) {
             unset($_SESSION['isLogin']);
             unset($_SESSION['login']);
+            unset($_SESSION['id_ND']);
         }
         header('location: .');
     }

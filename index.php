@@ -32,6 +32,7 @@ switch ($act) {
             if ((isset($_SESSION['isLogin_Admin']) && $_SESSION['isLogin_Admin'] == true)) {
                 switch ($act) {
                     case 'dangxuat':
+                        echo("Dang Xuat");
                         $controller_obj->dangxuat();
                         break;
                     case 'account':
@@ -73,29 +74,29 @@ switch ($act) {
         $shopController->list();
         break;
     case 'cart':
-        $act = isset($_GET['xuli']) ? $_GET['xuli'] : "add";
+        $act = isset($_GET['xuli']) ? $_GET['xuli'] : "list";
         require_once('controllers/CartController015.php');
         $controller_obj = new CartController015();
         switch ($act) {
+            case 'list':
+                $controller_obj->list_cart();
+                break;
             case 'add':
                 $controller_obj->add_cart();
                 break;
-            // case 'add':
-            //     $controller_obj->add_cart();
-            //     break;
-            // case 'update':
-            //     $controller_obj->update_cart();
-            //     break;
-            // case 'delete':
-            //     $controller_obj->delete_cart();
-            //     break;
-            // case 'deleteAll':
-            //     $controller_obj->deleteall_cart();
-            //     break;
+            case 'update':
+                $controller_obj->increase_cart();
+                break;
+            case 'delete':
+                $controller_obj->reduce_cart();
+                break;
+            case 'deleteAll':
+                $controller_obj->deleteall_cart();
+                break;
             // case 'addwishlist':
             //     $controller_obj->addwishlist();
             default:
-                $controller_obj->add_cart();
+                $controller_obj->list_cart();
                 break;
         }
     default:
