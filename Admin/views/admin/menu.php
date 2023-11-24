@@ -234,7 +234,7 @@
         <li class="nav-item">
             <a id="home-link" class="nav-link" href="index.php">
                 <i class="bi bi-grid"></i>
-                <span>Dashboard</span>
+                <span>Bảng Điều Khiển</span>
             </a>
         </li><!-- End Dashboard Nav -->
         <li class="nav-heading">Pages</li>
