@@ -370,12 +370,6 @@
                                 Thêm sản phẩm mới</a>
                         </div>
                     </div>
-
-                    <?php if (isset($_COOKIE['msg'])) { ?>
-                        <div class="alert alert-warning">
-                            <strong>Thông báo</strong> <?= $_COOKIE['msg'] ?>
-                        </div>
-                    <?php } ?>
                     <form class="row" action="./?mod=thuonghieu&act=store" method="POST" role="form" enctype="multipart/form-data">
                         <div class="form-group col-md-6">
                             <label class="col-sm-2 col-form-label">Chọn Danh Mục</label>

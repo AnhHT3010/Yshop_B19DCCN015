@@ -4,7 +4,7 @@
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
                 <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Login</li>
+                <li class="breadcrumb-item active" aria-current="page">Đăng nhập</li>
             </ol>
         </div><!-- End .container -->
     </nav><!-- End .breadcrumb-nav -->
@@ -15,36 +15,35 @@
                     <div class="form-tab">
                         <ul class="nav nav-pills nav-fill" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" id="signin-tab-2" data-toggle="tab" href="#signin-2" role="tab" aria-controls="signin-2" aria-selected="true">Sign In</a>
+                                <a class="nav-link active" id="signin-tab-2" data-toggle="tab" href="#signin-2" role="tab" aria-controls="signin-2" aria-selected="true">Đăng nhập</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="register-tab-2" data-toggle="tab" href="#register-2" role="tab" aria-controls="register-2" aria-selected="false">Register</a>
+                                <a class="nav-link" id="register-tab-2" data-toggle="tab" href="#register-2" role="tab" aria-controls="register-2" aria-selected="false">Đăng ký</a>
                             </li>
                         </ul>
                         <div class="tab-content">
                             <div class="tab-pane fade show active" id="signin-2" role="tabpanel" aria-labelledby="signin-tab-2">
                                 <form action="login" id="form1" method="post" role="form">
                                     <div class="form-group">
-                                        <label for="singin-email-2">Username or email address *</label>
+                                        <label for="singin-email-2">Tài khoản người dùng *</label>
                                         <input type="text" class="form-control" id="singin-email-2" name="taikhoan" required>
                                     </div><!-- End .form-group -->
 
                                     <div class="form-group">
-                                        <label for="singin-password-2">Password *</label>
+                                        <label for="singin-password-2">Mật khẩu *</label>
                                         <input type="password" class="form-control" id="singin-password-2" name="matkhau" required>
                                     </div><!-- End .form-group -->
 
-                                    <a href="#" class="forgot-link">Forgot Your Password?</a>
+                                    <a href="#" class="forgot-link">Quên mật khẩu?</a>
                                     <div class="form-footer">
                                         <button for="form1" name="submit" type="submit" class="btn btn-outline-primary-2">
-                                            <span>LOG IN</span>
+                                            <span>Đăng nhập</span>
                                             <i class="fa-solid fa-arrow-right"></i>
                                         </button>
 
                                         <div class="custom-control custom-checkbox">
                                             <input type="checkbox" class="custom-control-input" id="signin-remember-2">
-                                            <label class="custom-control-label" for="signin-remember-2">Remember
-                                                Me</label>
+                                            <label class="custom-control-label" for="signin-remember-2">Ghi nhớ đăng nhập</label>
                                         </div><!-- End .custom-checkbox -->
 
                                     </div><!-- End .form-footer -->
@@ -55,39 +54,39 @@
                                 <form action="./?act=taikhoan&xuli=dangky" method="post" role="form" id="form2">
 
                                     <div class="form-group">
-                                        <label for="register-email">First Name *</label>
+                                        <label for="register-email">Họ người dùng *</label>
                                         <input type="text" name="Ho" class="form-control" id="register-email" required>
                                     </div><!-- End .form-group -->
                                     <div class="form-group">
-                                        <label for="register-email">Last Name *</label>
+                                        <label for="register-email">Tên người dùng *</label>
                                         <input type="text" name="Ten" class="form-control" id="register-email" required>
                                     </div><!-- End .form-group -->
                                     <div class="form-group">
-                                        <label for="register-password">User name *</label>
+                                        <label for="register-password">Tên tài khoản *</label>
                                         <input type="text" name="TaiKhoan" class="form-control" id="register-password" required>
                                     </div><!-- End .form-group -->
                                     <div class="form-group">
-                                        <label for="register-password">Email address *</label>
+                                        <label for="register-password">Địa chỉ email *</label>
                                         <input type="email" name="Email" class="form-control" id="register-password" required>
                                     </div><!-- End .form-group -->
                                     <div class="form-group">
-                                        <label for="register-password">Password *</label>
+                                        <label for="register-password">Mật khẩu *</label>
                                         <input type="password" name="MatKhau" class="form-control" id="register-password" required>
                                     </div><!-- End .form-group -->
                                     <div class="form-group">
-                                        <label for="register-password">Confirm new password *</label>
+                                        <label for="register-password">Nhắc lại mật khẩu*</label>
                                         <input type="password" name="check_password" class="form-control" id="register-password" required>
                                     </div><!-- End .form-group -->
                                     <div class="form-footer">
                                         <button for="form2" type="submit" class="btn btn-outline-primary-2">
-                                            <span>SIGN UP</span>
+                                            <span>ĐĂNG KÝ</span>
                                             <i class="fa-solid fa-arrow-right"></i>
                                         </button>
 
                                         <div class="custom-control custom-checkbox">
                                             <input type="checkbox" value="1" name="TrangThai" class="custom-control-input" id="register-policy" required>
-                                            <label class="custom-control-label" for="register-policy">I agree to the
-                                                <a href="#">privacy policy</a> *</label>
+                                            <label class="custom-control-label" for="register-policy">Tôi đồng ý với các
+                                                <a href="#">điều khoản trên</a> *</label>
                                         </div><!-- End .custom-checkbox -->
                                     </div><!-- End .form-footer -->
                                 </form>

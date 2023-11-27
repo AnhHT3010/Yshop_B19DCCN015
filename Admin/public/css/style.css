@@ -1232,6 +1232,7 @@ h6 {
   color: #012970;
 }
 .btn-add{
+  min-width: 175px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 10px;
   font-weight: 500;
@@ -1338,6 +1339,79 @@ h6 {
 }
 #thumbdetail .deleteButton:hover {
   opacity: 0.7;
+}
+
+.alert-msg {
+  position: fixed; /* Đặt phần tử ở vị trí cố định */
+  top: 100px; /* Khoảng cách từ trên xuống */
+  right: 10px; /* Khoảng cách từ phải sang trái */
+  z-index: 9999;
+}
+
+.alert-msg strong {
+  color: white; /* Màu của đoạn văn bản in đậm */
+}
+.toast-msg{
+  border: 1px solid rgb(102, 172, 204); /* Đường viền của thông báo */
+  padding: 10px; /* Khoảng cách giữa nội dung và biên của thông báo */
+  border-radius: 5px; /* Bo tròn góc */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Đổ bóng cho thông báo */
+  z-index: 9999; /* Đảm bảo hiển thị trên các phần tử khác */
+  animation: slideInLeft ease .3s, fadeOut linear 1s 3s forwards;
+}
+.toast-info{
+  color: #004085;
+  background-color: #cce5ff !important; /* Màu nền của thông báo */
+  border-color: #b8daff;
+}
+.toast-error{
+  background-color: #f8d7da  !important; /* Màu nền của thông báo */
+  color: #721c24;
+  border-color: #f5c6cb;
+}
+.toast-warning{
+  background-color: #fff3cd  !important; /* Màu nền của thông báo */
+  color: #856404;
+  border-color: #ffeeba;
+}
+.toast-info strong{
+  color: #004085;
+}
+.toast-warning strong{
+  color: #856404;
+}
+.toast-error strong{
+  color: #721c24;
+}
+.toast-success strong{
+  color: #155724;
+}
+.toast-success{
+  background-color: #d4edda  !important; /* Màu nền của thông báo */
+  color: #155724;
+  border-color: #c3e6cb;
+}
+.alert{
+  animation: slideInLeft ease .3s;
+}
+@keyframes slideInLeft{
+  from {
+    transform: translateX(calc(100% + 32px));
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeOut {
+  to{
+    opacity: 0;
+  }
+}
+#cancel:hover {
+  cursor: pointer;
+  color: black;
 }
 
 

@@ -273,21 +273,6 @@
                 <span>Quản lý Đơn Hàng</span>
             </a>
         </li>
-
-        <li class="nav-item">
-            <a id="quangcao-link" class="nav-link collapsed" href="quangcao">
-                <i class="bx bx-slideshow"></i>
-                <span>Quản lý Quảng Cáo</span>
-            </a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="error">
-                <i class="bi bi-dash-circle"></i>
-                <span>Error 404</span>
-            </a>
-        </li><!-- End Error 404 Page Nav -->
-
     </ul>
 
 </aside><!-- End Sidebar-->

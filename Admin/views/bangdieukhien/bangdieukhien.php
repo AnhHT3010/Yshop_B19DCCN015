@@ -142,7 +142,7 @@
                                 </div>
 
                                 <div class="card-body">
-                                    <h5 class="card-title">Đơn hàng bàn gần đây <span>| Hôm nay</span></h5>
+                                    <h5 class="card-title">Đơn hàng bán gần đây <span>| Hôm nay</span></h5>
 
                                     <table class="table table-borderless datatable">
                                         <thead>
@@ -158,7 +158,7 @@
                                         <tbody>
                                             <?php foreach ($data_order as $order) : ?>
                                                 <tr>
-                                                    <th scope="row"><a href="#">#<?= $order['MaHD']; ?></a></th>
+                                                    <th scope="row"><a href="?mod=donhang&act=detail&id=<?= $order['MaHD']; ?>">#<?= $order['MaHD']; ?></a></th>
                                                     <td><?= $order['Ten'] . " " . $order['Ho'] ?></td>
                                                     <td><?= $order['NguoiNhan'] ?></td>
                                                     <td><a href="#" class="text-primary"><?= $order['DiaChi'] ?></a></td>
@@ -212,9 +212,9 @@
                                             <?php foreach ($data_best_selling as $best_selling) : ?>
                                                 <tr>
                                                     <th scope="row"><a href="#"><img src="<?= $best_selling['AnhDaiDien'] ?>" alt=""></a></th>
-                                                    <td><a href="#" class="text-primary fw-bold"><?= $best_selling['TenSP'] ?></a></td>
+                                                    <td><a href="sanpham" class="text-primary fw-bold"><?= $best_selling['TenSP'] ?></a></td>
                                                     <td><?= number_format($best_selling['DonGia']) ?></td>
-                                                    <td class="fw-bold"><?= $best_selling['TongSoLuong'] ?></td>
+                                                    <td class="fw-bold text-left"><?= $best_selling['TongSoLuong'] ?></td>
                                                     <td><?= number_format($best_selling['DonGia'] * $best_selling['TongSoLuong']) ?></td>
                                                 </tr>
                                             <?php endforeach; ?>

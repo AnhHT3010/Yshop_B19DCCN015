@@ -46,6 +46,7 @@ if (isset($_SESSION['isLogin_Admin']) && $_SESSION['isLogin_Admin'] == true) {
             break;
         }
         break;
+      
       case 'thuonghieu':
         require_once('./controllers/ThuongHieuController015.php');
         $controller_obj = new ThuongHieuController015();
@@ -118,8 +119,38 @@ if (isset($_SESSION['isLogin_Admin']) && $_SESSION['isLogin_Admin'] == true) {
             break;
         }
         break;
-      default:
-        header('location: ?mod=login');
+      case 'donhang':
+        require_once('./controllers/DonhangController015.php');
+        $controller_obj = new DonhangController015();
+        switch ($act) {
+          case 'list':
+            $controller_obj->list();
+            break;
+          case 'detail':
+            $controller_obj->detail();
+            break;
+          case 'browse_bill':
+            $controller_obj->browse_bill();
+            break;
+          case 'filter_browse':
+            $controller_obj->filter_browse();
+            break;
+          case 'filter_not_browse':
+            $controller_obj->filter_not_browse();
+            break;
+          case 'delete':
+            $controller_obj->delete();
+            break;
+          case 'export_invoice':
+            $controller_obj->export_invoice();
+            break;
+          default:
+            $controller_obj->list();
+            break;
+        }
+        break;
+        default:
+        header('location: ?mod=list');
         break;
       }
 }else{

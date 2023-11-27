@@ -19932,6 +19932,9 @@ button:focus {
 .alert-msg strong {
   color: white; /* Màu của đoạn văn bản in đậm */
 }
+.alert{
+  animation: slideInLeft ease .3s;
+}
 .toast-msg{
   border: 1px solid rgb(102, 172, 204); /* Đường viền của thông báo */
   padding: 10px; /* Khoảng cách giữa nội dung và biên của thông báo */

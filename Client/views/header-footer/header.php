@@ -139,7 +139,7 @@
                             <p style="color: white; font-weight: 500; font-size: 1.5rem"><?= $_SESSION['login']['Ho'] ?>
                                 <?= $_SESSION['login']['Ten'] ?></p>
                         <?php } else { ?>
-                            <a href="account" style="color: black; font-weight: 500;"><i class="fa-solid fa-user"></i><span>Đăng nhập</span></a>
+                            <a href="account" style="color: white; font-weight: 500; "><i class="fa-solid fa-user" style="font-size: 3rem"></i><span style="line-height: 2rem;">Đăng nhập</span></a>
                         <?php } ?>
                     </a>
 

@@ -40,10 +40,10 @@ class sanpham extends model
         $status = $this->conn->query($query);
 
         if ($status == true) {
-            setcookie('msg', 'Thêm thành công', time() + 2);
+            setcookie('msg-success', 'Thêm thành công', time() + 2);
             header('Location: ?mod=' . $this->route);
         } else {
-            setcookie('msg', 'Lỗi thêm', time() + 2);
+            setcookie('msg-error', 'Lỗi thêm', time() + 2);
             header('Location: ?mod=' . $this->route . '&act=add');
         }
     }
@@ -85,17 +85,17 @@ class sanpham extends model
 
                 if (!$insertStatus) {
                     // Error in insert
-                    setcookie('msg', 'Lỗi cập nhật (insert)', time() + 2);
+                    setcookie('msg-error', 'Lỗi cập nhật (insert)', time() + 2);
                     header('Location: ?mod=' . $this->route . '&act=edit');
                     return; // Exit the function if there's an error in insert
                 }
             }
             // Successful update
-            setcookie('msg', 'Cập nhật thành công', time() + 2);
+            setcookie('msg-success', 'Cập nhật thành công', time() + 2);
             header('Location: ?mod=' . $this->route);
         } else {
             // Error in delete
-            setcookie('msg', 'Lỗi cập nhật (delete)', time() + 2);
+            setcookie('msg-error', 'Lỗi cập nhật (delete)', time() + 2);
             header('Location: ?mod=' . $this->route . '&act=edit');
         }
     }

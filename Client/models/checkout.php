@@ -34,9 +34,4 @@ class Checkout extends model
             echo 'Error: ' . mysqli_error($this->conn);
         }
     }
-    function chitiethoadon()
-    {
-        $id = $_SESSION['login']['MaND'];
-        return $this->conn->query("SELECT * FROM hoadon WHERE MaND = $id")->fetch_assoc();
-    }
 }

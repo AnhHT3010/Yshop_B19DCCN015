@@ -35,10 +35,10 @@ class Model
         $status = $this->conn->query($query);
 
         if ($status == true) {
-            setcookie('msg', 'Thêm thành công' , time() + 2);
+            setcookie('msg-success', 'Thêm thành công' , time() + 2);
             header('Location: ?mod=' . $this->route);
         } else {
-            setcookie('msg', 'Lỗi thêm', time() + 2);
+            setcookie('msg-error', 'Lỗi thêm', time() + 2);
             header('Location: ?mod=' . $this->route . '&act=add');
         }
     }
@@ -61,10 +61,10 @@ class Model
         $result = $this->conn->query($query);
 
         if ($result == true) {
-            setcookie('msg', 'Cập nhật thành công !', time() + 2);
+            setcookie('msg-success', 'Cập nhật thành công !', time() + 2);
             header('Location: ?mod=' . $this->route);
         } else {
-            setcookie('msg', 'Lỗi cập nhật', time() + 2);
+            setcookie('msg-error', 'Lỗi cập nhật', time() + 2);
             header('Location: ?mod=' . $this->route . '&act=edit&id=' . $data[$this->contens]);
         }
     }
@@ -74,9 +74,9 @@ class Model
 
         $status = $this->conn->query($query);
         if ($status == true) {
-            setcookie('msg', 'Delete successfully', time() + 2);
+            setcookie('msg-success', 'Delete successfully', time() + 2);
         } else {
-            setcookie('msg', 'Deletion failed', time() + 2);
+            setcookie('msg-error', 'Deletion failed', time() + 2);
         }
         header('Location: ?mod=' . $this->route);
     }

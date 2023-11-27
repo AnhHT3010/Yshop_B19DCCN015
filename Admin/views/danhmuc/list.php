@@ -33,11 +33,6 @@
                                     Thêm mới danh mục</a>
                             </div>
                         </div>
-                        <?php if (isset($_COOKIE['msg'])) { ?>
-                            <div class="alert alert-success">
-                                <strong>Thông báo</strong> <?= $_COOKIE['msg'] ?>
-                            </div>
-                        <?php } ?>
                         <!-- Table with stripped rows -->
                         <table class="table datatable">
                             <thead>

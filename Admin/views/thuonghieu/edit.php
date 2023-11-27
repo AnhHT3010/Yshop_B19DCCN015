@@ -102,12 +102,6 @@
                         </div>
                     </div>
 
-                    <?php if (isset($_COOKIE['msg'])) { ?>
-                        <div class="alert alert-warning">
-                            <strong>Thông báo</strong> <?= $_COOKIE['msg'] ?>
-                        </div>
-                    <?php } ?>
-
                     <form class="row" action="./?mod=thuonghieu&act=update" method="POST" role="form" enctype="multipart/form-data">
                         <div class="form-group">
                             <input class="form-control" value="<?= $data_brand['MaLSP'] ?>" type="hidden" name="MaLSP" placeholder="">

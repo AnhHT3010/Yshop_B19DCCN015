@@ -41,6 +41,50 @@
 </head>
 
 <body>
+    <?php if (isset($_COOKIE['msg-error'])) { ?>
+        <div class="alert alert-msg">
+            <div class="d-flex justify-content-around align-items-center toast-msg toast-error">
+                <i class="bx bxs-error-alt"></i>
+                <div class="mx-2">
+                    <strong>Thông báo: </strong> <?= $_COOKIE['msg-error'] ?>
+                </div>
+                <i class="ri-close-circle-line" id="cancel"></i>
+            </div>
+        </div>
+    <?php } ?>
+    <?php if (isset($_COOKIE['msg-info'])) { ?>
+        <div class="alert alert-msg">
+            <div class="d-flex justify-content-around align-items-center toast-msg toast-info">
+                <i class="bx bxs-error-alt"></i>
+                <div class="mx-2">
+                    <strong>Thông báo: </strong><?= $_COOKIE['msg-info'] ?>
+                </div>
+                <i class="ri-close-circle-line" id="cancel"></i>
+            </div>
+        </div>
+    <?php } ?>
+    <?php if (isset($_COOKIE['msg-warning'])) { ?>
+        <div class="alert alert-msg">
+            <div class="d-flex justify-content-around align-items-center toast-msg toast-warning">
+                <i class="bx bxs-error-alt"></i>
+                <div class="mx-2">
+                    <strong>Thông báo: </strong><?= $_COOKIE['msg-warning'] ?>
+                </div>
+                <i class="ri-close-circle-line" id="cancel"></i>
+            </div>
+        </div>
+    <?php } ?>
+    <?php if (isset($_COOKIE['msg-success'])) { ?>
+        <div class="alert alert-msg">
+            <div class="d-flex justify-content-around align-items-center toast-msg toast-success">
+                <i class="bx bx-check-circle"></i>
+                <div class="mx-2">
+                    <strong>Thông báo: <?= $_COOKIE['msg-success'] ?></strong>
+                </div>
+                <i class="ri-close-circle-line" id="cancel"></i>
+            </div>
+        </div>
+    <?php } ?>
     <?php
     require_once("./views/admin/menu.php") ?>
     <?php
@@ -49,6 +93,23 @@
     switch ($mod) {
         case 'admin':
             require_once("./views/bangdieukhien/bangdieukhien.php");
+            break;
+        case 'donhang':
+            switch ($act) {
+                case 'list':
+                    require_once("./views/hoadon/list.php");
+                    break;
+                case 'delete':
+                    require_once("./views/hoadon/list.php");
+                    break;
+                case 'detail':
+                    echo ("Đã vào chi tiet");
+                    require_once("./views/hoadon/detail.php");
+                    break;
+                default:
+                    require_once("./views/hoadon/list.php");
+                    break;
+            }
             break;
         case 'danhmuc':
             switch ($act) {
@@ -112,6 +173,15 @@
             break;
     }
     ?>
+    <script>
+        let iconCancel = document.querySelector("#cancel");
+        let alert = document.querySelector(".alert-msg");
+        console.log(alert)
+        iconCancel.addEventListener('click', () => {
+            console.log("click")
+            alert.style.display = 'none';
+        });
+    </script>
     <!-- Vendor JS Files -->
     <script src="public/vendor/apexcharts/apexcharts.min.js"></script>
     <script src="public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
