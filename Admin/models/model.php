@@ -74,9 +74,9 @@ class Model
 
         $status = $this->conn->query($query);
         if ($status == true) {
-            setcookie('msg-success', 'Delete successfully', time() + 2);
+            setcookie('msg-success', 'Xóa thành công', time() + 2);
         } else {
-            setcookie('msg-error', 'Deletion failed', time() + 2);
+            setcookie('msg-error', 'Lỗi!!!', time() + 2);
         }
         header('Location: ?mod=' . $this->route);
     }

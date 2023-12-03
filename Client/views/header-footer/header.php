@@ -131,12 +131,12 @@
                 <div class="dropdown compare-dropdown">
                     <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static" title="Compare Products" aria-label="Compare Products">
                         <?php if (isset($_SESSION['isLogin'])) { ?>
-                            <?php if (isset($_SESSION['login']['HinhAnh']) or $_SESSION['login']['HinhAnh'] != '' or $_SESSION['login']['HinhAnh'] != NULL) { ?>
-                                <img style="box-shadow: inset 0 -2em 0em rgb(0 154 200 / 50%), 0 0 0 1px white" src="<?= $_SESSION['login']['HinhAnh'] ?>" width="50px" class="rounded-circle" />
+                            <?php if (isset($data_profile['HinhAnh'])) { ?>
+                                <img src="<?= $data_profile['HinhAnh'] ?>" style="height: 50px; width: 50px" class="rounded-circle" />
                             <?php } else { ?>
                                 <img src="https://icons.iconarchive.com/icons/papirus-team/papirus-status/512/avatar-default-icon.png" alt="avatar" width="50px" class="rounded-circle" />
                             <?php } ?>
-                            <p style="color: white; font-weight: 500; font-size: 1.5rem"><?= $_SESSION['login']['Ho'] ?>
+                            <p style="color: white; font-weight: 500; font-size: 1.5rem, font-family: small"><?= $_SESSION['login']['Ho'] ?>
                                 <?= $_SESSION['login']['Ten'] ?></p>
                         <?php } else { ?>
                             <a href="account" style="color: white; font-weight: 500; "><i class="fa-solid fa-user" style="font-size: 3rem"></i><span style="line-height: 2rem;">Đăng nhập</span></a>
@@ -161,7 +161,8 @@
                         <?php if (isset($_SESSION['isLogin'])) { ?>
 
                             <div class="compare-actions">
-                                <a href="./?act=taikhoan&xuli=dangxuat" class="btn btn-outline-primary-2"><span>Đăng xuất</span><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+                                <a href="./?act=taikhoan&xuli=dangxuat" class="btn btn-outline-primary-2"><span>Đăng
+                                        xuất</span><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
                             </div>
                         <?php }  ?>
 

@@ -60,51 +60,55 @@ switch ($act) {
         $shopController = new ShopController015();
         $shopController->list();
         break;
-    case 'cart':
-        $act = isset($_GET['xuli']) ? $_GET['xuli'] : "list";
-        require_once('Client/controllers/CartController015.php');
-        $controller_obj = new CartController015();
-        switch ($act) {
-            case 'list':
-                $controller_obj->list_cart();
-                break;
-            case 'add':
-                $controller_obj->add_cart();
-                break;
-            case 'update':
-                $controller_obj->increase_cart();
-                break;
-            case 'delete':
-                $controller_obj->reduce_cart();
-                break;
-            case 'deleteAll':
-                $controller_obj->deleteall_cart();
-                break;
-            // case 'addwishlist':
-            //     $controller_obj->addwishlist();
-            default:
-                $controller_obj->list_cart();
-                break;
-        }
     case 'checkout':
         $act = isset($_GET['xuli']) ? $_GET['xuli'] : "list";
         require_once('Client/controllers/CheckoutController015.php');
         $controller_obj = new CheckoutController015();
         switch ($act) {
             case 'list':
-                $controller_obj->list();
+                $controller_obj->list_order();
                 break;
             case 'save':
                 $controller_obj->save();
                 break;
             default:
-                $controller_obj->list();
+                $controller_obj->list_order();
                 break;
         }
         break;
+    case 'cart':
+        if (isset($_SESSION['login']['MaND'])) {
+            $act = isset($_GET['xuli']) ? $_GET['xuli'] : "list";
+            require_once('Client/controllers/CartController015.php');
+            $controller_obj = new CartController015();
+            switch ($act) {
+                case 'list':
+                    $controller_obj->list_cart();
+                    break;
+                case 'add':
+                    $controller_obj->add_cart();
+                    break;
+                case 'update':
+                    $controller_obj->increase_cart();
+                    break;
+                case 'delete':
+                    $controller_obj->reduce_cart();
+                    break;
+                case 'deleteAll':
+                    $controller_obj->deleteall_cart();
+                    break;
+                    // case 'addwishlist':
+                    //     $controller_obj->addwishlist();
+                default:
+                    $controller_obj->list_cart();
+                    break;
+                } 
+        } else {
+            header('location: account');
+        }
     default:
-    require_once("Client/controllers/HomeController015.php");
-    $list_homecontroller = new HomeController015();
-    $list_homecontroller->list();
-    break;
+        require_once("Client/controllers/HomeController015.php");
+        $list_homecontroller = new HomeController015();
+        $list_homecontroller->list();
+        break;
 }

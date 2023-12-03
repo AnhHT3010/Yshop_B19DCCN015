@@ -28,7 +28,7 @@ class Cart extends model
         if ($status == true) {
             setcookie('msg-success', 'Thêm thành công', time() + 2);
             if(isset($checked)){
-                header("location: store");
+                header("location: cart");
             }else{
                 header("location: ");
             }

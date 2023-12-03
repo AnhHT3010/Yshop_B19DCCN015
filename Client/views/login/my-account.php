@@ -1,5 +1,5 @@
 <main class="main">
-    <div class="page-header text-center my-5" style="background-image: url('public/assets/images/page-header-bg.jpg')">
+    <div class="page-header text-center my-5" style="background-image: url('Client/public/assets/images/page-header-bg.jpg')">
         <div class="container">
             <h1 class="page-title">Thông tin tài khoản<span><?= $_SESSION['login']['Ho'] ?>
                     <?= $_SESSION['login']['Ten'] ?></span></h1>

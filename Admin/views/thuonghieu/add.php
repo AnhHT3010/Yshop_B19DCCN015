@@ -409,9 +409,7 @@
                                 CKEDITOR.replace('summernote');
                             </script>
                         </div>
-                        <div class="form-group col-md-12 mt-5"> <!-- Thêm class mt-3 để tạo khoảng cách top -->
-                            <button type="submit" class="btn">Thêm</button>
-                        </div>
+                        <button type="submit" class="btn btn-success w-25 m-auto mt-10">Cập nhật</button>
                     </form>
                 </div>
             </div>

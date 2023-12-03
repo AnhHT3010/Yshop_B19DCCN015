@@ -13,28 +13,32 @@ class CheckoutController015
         $this->cart_model = new Cart();
         $this->login_model = new login();
     }
-    function list()
+    function list_order()
     {
-        $data_categories = $this->checkout_model->categories();
-        $data_brands = array();
-        for ($i = 1; $i <= count($data_categories); $i++) {
-            $data_brands[$i] = $this->checkout_model->brands($i);
-        }
         if (isset($_SESSION['id_ND']) && $_SESSION['id_ND'] && !empty($_SESSION['id_ND'])) {
             $data_cart = $this->cart_model->detail_cart_item($_SESSION['id_ND']);
             $data_user = $this ->login_model -> get_user($_SESSION['id_ND']);
+            $data_check_quatity = $this->checkout_model->check_quatity_product($_SESSION['id_ND']);
         }
         if (isset($_SESSION['login'])) {
-
             $count = 0;
             if (isset($data_cart)) {
                 foreach ($data_cart as $value) {
                     $count += $value['SoLuongTrongGio'] * $value['DonGia'];
                 }
             }
-            require_once('Client/views/index.php');
-        } else {
-            header('location: login');
+            if($data_check_quatity){
+                setcookie('msg-error', 'Vui lòng kiểm tra lại số lượng của sản phẩm !', time() + 2);
+                header('location: cart');
+            }else{
+                $data_categories = $this->checkout_model->categories();
+                $data_brands = array();
+                $data_profile = $this->login_model->account();
+                for ($i = 1; $i <= count($data_categories); $i++) {
+                    $data_brands[$i] = $this->checkout_model->brands($i);
+                }
+                require_once('Client/views/index.php');
+            }
         }
     }
     function save()

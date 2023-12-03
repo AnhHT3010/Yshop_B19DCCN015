@@ -94,6 +94,23 @@
         case 'admin':
             require_once("./views/bangdieukhien/bangdieukhien.php");
             break;
+        case 'nguoidung':
+            switch ($act) {
+                case 'list':
+                    require_once("../nguoidung/list.php");
+                    break;
+                case 'edit':
+                    require_once("./views/nguoidung/edit.php");
+                    break;
+                case 'detail':
+                    echo ("Đã vào chi tiet");
+                    require_once("./views/hoadon/detail.php");
+                    break;
+                default:
+                    require_once("./views/nguoidung/list.php");
+                    break;
+            }
+            break;
         case 'donhang':
             switch ($act) {
                 case 'list':

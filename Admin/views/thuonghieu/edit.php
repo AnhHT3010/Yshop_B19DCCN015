@@ -146,7 +146,7 @@
                             </script>
                         </div>
                         <div class="form-group col-md-12 mt-5"> <!-- Thêm class mt-3 để tạo khoảng cách top -->
-                            <button type="submit" class="btn">Cập nhật</button>
+                            <button type="submit" class="btn btn-success w-25 m-auto mt-10">Cập nhật</button>
                         </div>
                     </form>
                 </div>

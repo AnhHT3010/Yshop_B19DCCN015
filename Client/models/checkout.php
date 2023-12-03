@@ -34,4 +34,12 @@ class Checkout extends model
             echo 'Error: ' . mysqli_error($this->conn);
         }
     }
+    function check_quatity_product($idND){
+        $query = "SELECT p.MaSP, p.TenSP, p.SoLuong AS SoLuongTrongKho, c.SoLuongTrongGio
+                FROM product p
+                INNER JOIN cart_item015 c ON p.MaSP = c.MaSP
+                WHERE c.SoLuongTrongGio > p.SoLuong AND c.MaND = $idND";
+        require("result.php");
+        return $data;
+    }
 }

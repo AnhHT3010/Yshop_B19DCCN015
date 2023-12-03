@@ -76,6 +76,9 @@ class LoginContronler
             'taikhoan' => $taikhoan,
             'matkhau' => $matkhau,
         );
+        if (isset($_SESSION['login']['MaND'])) {
+            $data_profile = $this->login_model->account();
+        }
         $this->login_model->login_action($data);
     }
     function account()

@@ -1,4 +1,5 @@
-<?php $thanhtien = 0; ?>
+<?php $thanhtien = 0;
+$success = false;  ?>
 <!-- Button trigger modal -->
 <!-- Modal -->
 <!-- Modal -->
@@ -19,7 +20,7 @@
     </div>
 </div>
 <main class="main">
-    <div class="page-header text-center" style="background-image: url('public/assets/images/page-header-bg.jpg')">
+    <div class="page-header text-center" style="background-image: url('Client/public/assets/images/page-header-bg.jpg')">
         <div class="container">
             <h1 class="page-title">Giỏ hàng<span>Cart</span></h1>
             <!-- xóa -->
@@ -58,13 +59,25 @@
                                 <?php
                                 if (isset($data_cart)) {
                                     foreach ($data_cart as $value) {
+                                        $found = false;
+                                        foreach ($data_check_quatity as $item) {
+                                            if ($value['MaSP'] == $item['MaSP']) {
+                                                $found = true;
+                                                if ($success == false) {
+                                                    $success = true;
+                                                }
+                                                break;
+                                            }
+                                        }
                                 ?>
-                                        <tr>
-                                            <td class="product-col">
+                                        <tr <?php if ($found) {
+                                                echo 'style="background-color: #fcc3c394; border-radius: 5px; padding: 15px"';
+                                            } ?>>
+                                            <td class="product-col" style="padding-left: 3rem !important;">
                                                 <div class="product">
                                                     <figure class="product-media">
                                                         <a href="#">
-                                                            <img src="<?= $value['AnhDaiDien'] ?>" alt="Product image">
+                                                            <img src="<?= $value['AnhDaiDien'] ?>" class = "rounded" alt="Product image">
                                                         </a>
                                                     </figure>
 
@@ -92,7 +105,7 @@
                                             </td>
                                             <td class="total-col">
                                                 $<?= number_format($value['SoLuongTrongGio'] * $value['DonGia']) ?></td>
-                                            <td class="remove-col"><button data-toggle="modal" onclick="setDeleteId(<?= $value['MaGH'] ?>)" data-target="#exampleModalCenter" class="btn-remove btn-agree"><i class="fa-solid fa-xmark"></i></button></td>
+                                            <td class="remove-col" style="padding-right: 3rem !important;"><button data-toggle="modal" onclick="setDeleteId(<?= $value['MaGH'] ?>)" data-target="#exampleModalCenter" class="btn-remove btn-agree"><i class="fa-solid fa-xmark"></i></button></td>
                                         </tr>
                                 <?php }
                                 } ?>
@@ -149,13 +162,15 @@
                                                 <td>
                                                     <div class="custom-control custom-radio">
                                                         <input type="radio" id="free-shipping" name="shipping" class="custom-control-input">
-                                                        <label class="custom-control-label" for="free-shipping">Miễn phí vận chuyển</label>
+                                                        <label class="custom-control-label" for="free-shipping">Miễn phí
+                                                            vận chuyển</label>
                                                     </div><!-- End .custom-control -->
                                                 </td>
                                                 <td>0.00 đ</td>
                                             </tr><!-- End .summary-shipping-row -->
                                             <tr class="summary-shipping-estimate">
-                                                <td>Ước tính cho quốc gia của bạn<br> <a href="personal">Thay đổi địa chỉ</a>
+                                                <td>Ước tính cho quốc gia của bạn<br> <a href="personal">Thay đổi địa
+                                                        chỉ</a>
                                                 </td>
                                                 <td>&nbsp;</td>
                                             </tr><!-- End .summary-shipping-estimate -->
@@ -167,11 +182,10 @@
                                         </tbody>
 
                                     </table><!-- End .table table-summary -->
-
-                                    <?php if ($data_cart) : ?>
-                                        <a href="checkout" class="btn btn-outline-primary-2 btn-order btn-block">TIẾN HÀNH KIỂM TRA</a>
-                                    <?php else : ?>
+                                    <?php if (!$data_cart) : ?>
                                         <a class="btn btn-order btn-block btn-disabled" disabled title="Chưa có hàng">CHƯA CÓ HÀNG</a>
+                                    <?php else : ?>
+                                        <a href="checkout" class="btn btn-outline-primary-2 btn-order btn-block">TIẾN HÀNH KIỂM TRA</a>
                                     <?php endif; ?>
                                 </div><!-- End .summary -->
 

@@ -46,8 +46,7 @@
                     <i class="fa-solid fa-x" id="cancel"></i>
                 </div>
             </div>
-        <?php } ?>
-        <?php if (isset($_COOKIE['msg-info'])) { ?>
+        <?php }elseif(isset($_COOKIE['msg-info'])) { ?>
             <div class="alert alert-msg">
                 <div class="d-flex justify-content-around align-items-center toast-msg toast-info">
                     <i class="fa-solid fa-circle-exclamation"></i>
@@ -57,8 +56,7 @@
                     <i class="fa-solid fa-x" id="cancel"></i>
                 </div>
             </div>
-        <?php } ?>
-        <?php if (isset($_COOKIE['msg-warning'])) { ?>
+        <?php } elseif(isset($_COOKIE['msg-warning'])) { ?>
             <div class="alert alert-msg">
                 <div class="d-flex justify-content-around align-items-center toast-msg toast-warning">
                     <i class="fa-solid fa-circle-exclamation"></i>
@@ -68,8 +66,7 @@
                     <i class="fa-solid fa-x" id="cancel"></i>
                 </div>
             </div>
-        <?php } ?>
-        <?php if (isset($_COOKIE['msg-success'])) { ?>
+        <?php } elseif(isset($_COOKIE['msg-success'])){ ?>
             <div class="alert alert-msg">
                 <div class="d-flex justify-content-around align-items-center toast-msg toast-success">
                     <i class="fa-regular fa-circle-check"></i>

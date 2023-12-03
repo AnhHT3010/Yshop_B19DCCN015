@@ -13,13 +13,21 @@ class login extends model
     }
     function login_action($data)
     {
+        $query = "SELECT * FROM `user` WHERE TaiKhoan ='". $data['taikhoan']."' AND TrangThai = 2";
+        $check = $this->conn->query($query)->fetch_assoc();  
+        if ($check !== NULL) {
+            setcookie('msg-warning', 'Tài khoản hiện đã bị khóa !', time() + 2);
+            header('Location: account');
+            die();
+        }
         $query = "SELECT * FROM `user` WHERE TaiKhoan = '" . $data['taikhoan'] . "' AND matkhau = '" . $data['matkhau'] . "' AND trangthai = 1";
         $login = $this->conn->query($query)->fetch_assoc();
         if ($login !== NULL) {
             if ($login['MaQuyen'] == 2) {
                 $_SESSION['isLogin_Admin'] = true;
                 $_SESSION['login'] = $login;
-                header('Location: Admin');
+                $_SESSION['id_Admin'] = $login['MaND'];
+                header('Location: admin');
             } else {
                 $_SESSION['id_ND'] = $login['MaND'];
                 $_SESSION['Avatar'] = $login['HinhAnh'];
@@ -27,8 +35,9 @@ class login extends model
                 $_SESSION['login'] = $login;
                 header('Location: .');
             }
-        }else {
-            setcookie('msg-info', 'Tài khoản hoặc mật khẩu không tồn tại !', time() + 5);
+        }
+        else {
+            setcookie('msg-info', 'Tài khoản hoặc mật khẩu không tồn tại !', time() + 2);
             header('Location: account');
         }
     }
@@ -80,7 +89,7 @@ class login extends model
 
                 $status = $this->conn->query($query);
                 if ($status == true) {
-                    setcookie('success', 'Bạn đã đăng ký thành công', time() + 2);
+                    setcookie('msg-success', 'Bạn đã đăng ký thành công', time() + 2);
                 } else {
                     setcookie('msg-error', 'You are registered unsuccessful', time() + 2);
                 }

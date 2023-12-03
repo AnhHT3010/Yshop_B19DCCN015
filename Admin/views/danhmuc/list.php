@@ -53,10 +53,10 @@
                                             <img src="<?= $row['HinhAnh'] ?>" height="60px">
                                         </td>
                                         <td>
-                                            <a href="./?mod=danhmuc&act=detail&id=<?= $row['MaDM'] ?>" class="btn btn-success"><i class="bx bx-search d-flex" style="font-size: 20px"></i></a>
+                                            <a href="./?mod=danhmuc&act=detail&id=<?= $row['MaDM'] ?>" class="btn btn-success"><i class="bx bx-search d-flex" style="font-size: 13px"></i></a>
                                             <?php if (isset($_SESSION['isLogin_Admin']) && $_SESSION['isLogin_Admin'] == true) { ?>
-                                                <a href="./?mod=danhmuc&act=edit&id=<?= $row['MaDM'] ?>" class="btn btn-warning"><i class="bx bx-message-square-edit d-flex" style="font-size: 20px"></i></a>
-                                                <a href="./?mod=danhmuc&act=delete&id=<?= $row['MaDM'] ?>" onclick="return confirm('Do you really want to delete?');" type="button" class="btn btn-danger" style="color:#d4e9f7 !important"><i class="bx bxs-trash d-flex" style="font-size: 20px"></i></a>
+                                                <a href="./?mod=danhmuc&act=edit&id=<?= $row['MaDM'] ?>" class="btn btn-warning"><i class="bx bx-message-square-edit d-flex" style="font-size: 13px"></i></a>
+                                                <a href="./?mod=danhmuc&act=delete&id=<?= $row['MaDM'] ?>" onclick="return confirm('Do you really want to delete?');" type="button" class="btn btn-danger" style="color:#d4e9f7 !important"><i class="bx bxs-trash d-flex" style="font-size: 13px"></i></a>
                                             <?php } ?>
                                         </td>
                                     </tr>

@@ -1,19 +1,26 @@
 <?php
 require_once("Client/models/cart.php");
 require_once("Client/models/home.php");
+require_once("Client/models/login.php");
+require_once("Client/models/checkout.php");
 class CartController015
 {
     var $cart_model;
     var $home_model;
+    var $login_model;
+    var $checkout_model;
     public function __construct()
     {
         $this->cart_model = new Cart();
         $this->home_model = new home();
+        $this->login_model = new login();
+        $this->checkout_model = new Checkout();
     }
     function list_cart()
     {
         $data_categories = $this->cart_model->categories();
         $data_catalogdetails = array();
+        $data_profile = $this->login_model->account();
         for ($i = 1; $i <= count($data_categories); $i++) {
             $data_brands[$i] = $this->home_model->brands($i);
         }
@@ -22,13 +29,11 @@ class CartController015
         }
         if (isset($_SESSION['id_ND']) && $_SESSION['id_ND'] && !empty($_SESSION['id_ND'])) {
             $data_cart = $this->cart_model->detail_cart_item($_SESSION['id_ND']);
+            $data_check_quatity = $this->checkout_model->check_quatity_product($_SESSION['id_ND']);
         }
-        // $count = 0;
-        // if (isset($_SESSION['id_ND'])) {
-        //     foreach ($_SESSION['products'] as $value) {
-        //         $count += $value['ThanhTien'];
-        //     }
-        // }
+        if ($data_check_quatity) {
+            setcookie('msg-error', 'Vui lòng kiểm tra lại số lượng của sản phẩm !', time() + 2);
+        }
         require_once("Client/views/index.php");
     }
     function add_cart()
@@ -88,15 +93,27 @@ class CartController015
     {
         $id = $_GET['id'];
         $this->cart_model->reduce_cart_database($id);
+        $data_check_quatity = $this->checkout_model->check_quatity_product($_SESSION['id_ND']);
+        if ($data_check_quatity) {
+            setcookie('msg-error', 'Vui lòng kiểm tra lại số lượng của sản phẩm !', time() + 2);
+        }
     }
     function increase_cart()
     {
         $id = $_GET['id'];
         $this->cart_model->increase_cart_database($id);
+        $data_check_quatity = $this->checkout_model->check_quatity_product($_SESSION['id_ND']);
+        if ($data_check_quatity) {
+            setcookie('msg-error', 'Vui lòng kiểm tra lại số lượng của sản phẩm !', time() + 2);
+        }
     }
     function deleteall_cart()
     {
         $id = $_GET['id'];
         $this->cart_model->deleteall_cart_item_database($id);
+        $data_check_quatity = $this->checkout_model->check_quatity_product($_SESSION['id_ND']);
+        if ($data_check_quatity) {
+            setcookie('msg-error', 'Vui lòng kiểm tra lại số lượng của sản phẩm !', time() + 2);
+        }
     }
 }

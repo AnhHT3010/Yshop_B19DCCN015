@@ -149,9 +149,30 @@ if (isset($_SESSION['isLogin_Admin']) && $_SESSION['isLogin_Admin'] == true) {
             break;
         }
         break;
+      case 'nguoidung':
+      require_once('./controllers/NguoiDungController015.php');
+      $controller_obj = new NguoiDungController();
+      switch ($act) {
+        case 'list':
+          $controller_obj->list();
+          break;
+        case 'edit':
+          $controller_obj->edit();
+          break;
+        case 'update':
+          $controller_obj->update();
+          break;
+        case 'delete':
+          $controller_obj->delete();
+          break;
         default:
-        header('location: ?mod=list');
+          $controller_obj->list();
+          break;
+        }
         break;
+        default:
+          header('location: ?mod=list');
+          break;
       }
 }else{
   header('location: ../');

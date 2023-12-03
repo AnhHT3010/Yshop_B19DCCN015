@@ -36,11 +36,11 @@ switch ($act) {
     case 'shop':
         require_once("shop/shop.php");
         break;
-    case 'cart':
-        require_once("cart/cart.php");
-        break;
     case 'checkout':
         require_once("order/checkout.php");
+        break;
+    case 'cart':
+        require_once("cart/cart.php");
         break;
     case 'personal':
         require_once("login/my-account.php");
