@@ -59,4 +59,9 @@ class model
         require("result.php");
         return $data;
     }
+    function account()
+    {
+        $id = $_SESSION['login']['MaND'];
+        return $this->conn->query("SELECT * from user where MaND = $id")->fetch_assoc();
+    }
 }

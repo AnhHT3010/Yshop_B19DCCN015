@@ -32,10 +32,10 @@
                     <div class="col-md-6 col-lg-6">
                         <div class="tab-content">
                             <div class="tab-pane fade" id="tab-dashboard" role="tabpanel" aria-labelledby="tab-dashboard-link">
-                                <?php if ($_SESSION['login']['HinhAnh'] != NULL) { ?>
+                                <?php if ($data_profile['HinhAnh'] != NULL) { ?>
                                     <blockquote style="margin-left: -50%;" class="testimonial text-center">
-                                        <img src="public/assets/images/testimonials/<?= $_SESSION['login']['HinhAnh'] ?>" alt="user">
-                                        <b><?= $_SESSION['login']['Ho'] ?> <?= $_SESSION['login']['Ten'] ?></b>
+                                        <img src="<?= $data_profile['HinhAnh'] ?>" alt="user">
+                                        <b><?= $data_profile['Ho'] ?> <?= $data_profile['Ten'] ?></b>
 
                                         <b>
                                             <?php if (isset($_COOKIE['doimk'])) {
@@ -47,7 +47,7 @@
                                 <?php } else { ?>
                                     <blockquote style="margin-left: -50%;" class="testimonial text-center">
                                         <img src="public/assets/images/testimonials/user.png" alt="user">
-                                        <b><?= $_SESSION['login']['Ho'] ?> <?= $_SESSION['login']['Ten'] ?></b>
+                                        <b><?= $data_profile['Ho'] ?> <?= $data_profile['Ten'] ?></b>
 
                                     </blockquote><!-- End .testimonial -->
                                 <?php } ?>
@@ -55,48 +55,48 @@
                                     <div class="row">
                                         <div class="col-sm-5">
                                             <b>First Name *</b>
-                                            <p> <?= $_SESSION['login']['Ho'] ?> </p>
+                                            <p> <?= $data_profile['Ho'] ?> </p>
                                         </div><!-- End .col-sm-6 -->
 
                                         <div class="col-sm-5">
                                             <b>Last Name *</b>
-                                            <p><?= $_SESSION['login']['Ten'] ?></p>
+                                            <p><?= $data_profile['Ten'] ?></p>
                                         </div><!-- End .col-sm-6 -->
                                     </div><!-- End .row -->
 
                                     <div class="row">
                                         <div class="col-sm-5">
-                                            <b>Sex *</b>
-                                            <p><?= $_SESSION['login']['GioiTinh'] ?></p>
+                                            <b>Giới tính *</b>
+                                            <p><?= $data_profile['GioiTinh'] ?></p>
                                         </div><!-- End .col-sm-6 -->
 
                                         <div class="col-sm-5">
-                                            <b>Email address *</b>
-                                            <p><?= $_SESSION['login']['Email'] ?></p>
+                                            <b>Địa chỉ email *</b>
+                                            <p><?= $data_profile['Email'] ?></p>
                                         </div><!-- End .col-sm-6 -->
                                     </div><!-- End .row -->
 
                                     <div class="row">
                                         <div class="col-sm-5">
 
-                                            <b>Phone number *</b>
-                                            <p><?= $_SESSION['login']['SDT'] ?></p>
+                                            <b>Số điện thoại *</b>
+                                            <p><?= $data_profile['SDT'] ?></p>
                                         </div><!-- End .col-sm-6 -->
 
                                         <div class="col-sm-5">
-                                            <b>Town / City *</b>
-                                            <p><?= $_SESSION['login']['DiaChi'] ?></p>
+                                            <b>Địa chỉ thường chú *</b>
+                                            <p><?= $data_profile['DiaChi'] ?></p>
                                         </div><!-- End .col-sm-6 -->
                                     </div><!-- End .row -->
                                     <div class="row">
                                         <div class="col-sm-5">
-                                            <b>State / County *</b>
-                                            <p><?= $_SESSION['login']['Quan'] ?></p>
+                                            <b>Quận / Huyện *</b>
+                                            <p><?= $data_profile['Quan'] ?></p>
                                         </div><!-- End .col-sm-6 -->
 
                                         <div class="col-sm-5">
-                                            <b>Street address *</b>
-                                            <p><?= $_SESSION['login']['Phuong'] ?></p>
+                                            <b>Tỉnh / thành phố *</b>
+                                            <p><?= $data_profile['Tinh'] ?></p>
                                         </div><!-- End .col-sm-6 -->
                                     </div><!-- End .row -->
                                 </form>
@@ -166,7 +166,9 @@
                                                                     <?php endforeach; ?>
                                                                 </tbody>
                                                             </table>
-                                                            <a type="button" class="view-details-button" style="background-color: red;" href="./?act=taikhoan&xuli=huydonhang&idHD=<?= $product['MaHD'] ?>">Hủy đơn hàng</a>
+                                                            <?php if ($data_order_detail[0]['TrangThai'] != "2") { ?>
+                                                                <a type="button" class="view-details-button" style="background-color: red;" href="./?act=taikhoan&xuli=huydonhang&idHD=<?= $product['MaHD'] ?>">Hủy đơn hàng</a>
+                                                            <?php } ?>
                                                             <a type="button" class="view-details-button" href="personal">Quay lại</a>
                                                         <?php } else { ?>
                                                             <div class="orders-grid">
@@ -183,13 +185,15 @@
                                                                                 $timestamp = strtotime($dateString);
                                                                                 $formattedDate = date('d/m/Y', $timestamp);
                                                                                 ?>
-                                                                                <p><strong>Ngày đặt hàng:</strong> <?= $formattedDate ?></p>
+                                                                                <p><strong>Ngày đặt hàng: <?= $formattedDate ?></strong></p>
                                                                                 <p><strong>Trạng thái:</strong>
                                                                                     <?php
                                                                                     if ($order['TrangThai'] == 0) {
-                                                                                        echo 'Chờ duyệt đơn';
+                                                                                        echo '<span  class="badge border border-info"  style = "color: #17a2b8 !important; font-weight: normal">Chờ duyệt đơn</span>';
+                                                                                    } else if ($order['TrangThai'] == 1) {
+                                                                                        echo '<span class="badge border border-success"  style = "color: #28a745 !important; font-weight: normal">Đang giao đến</span>';
                                                                                     } else {
-                                                                                        echo 'Đang giao đến';
+                                                                                        echo '<span class="badge rounded-5 border border-danger p-2" style = "color: red; font-weight: normal">Đơn hàng của bạn đã hủy</span>';
                                                                                     }
                                                                                     ?>
                                                                                 </p>
@@ -312,7 +316,7 @@
                                             <input type="text" name="Ten" class="form-control" required>
                                         </div><!-- End .col-sm-6 -->
                                     </div><!-- End .row -->
-                                    <label>Sex *</label>
+                                    <label>Giới tính *</label>
                                     <select class="form-control" name="GioiTinh" title="Giới tính">
                                         <option <?= ($data_profile['GioiTinh'] == 'Male') ? 'selected' : '' ?> value="Male">
                                             Male</option>
@@ -322,21 +326,21 @@
                                     <label>Email address *</label>
                                     <input type="email" name="Email" class="form-control" required>
 
-                                    <label>Phone number *</label>
+                                    <label>Số điện thoại *</label>
                                     <input type="tel" name="SĐT" class="form-control" required>
 
-                                    <label>Town / City *</label>
+                                    <label>Địa chỉ *</label>
                                     <input type="text" name="DiaChi" class="form-control" required>
 
 
-                                    <label>State / County *</label>
+                                    <label>Quận / Huyện *</label>
                                     <input type="text" name="Quan" class="form-control" required>
 
 
-                                    <label>Street address *</label>
-                                    <input type="text" name="Phuong" class="form-control" required>
+                                    <label>Tỉnh / Thành phố *</label>
+                                    <input type="text" name="Tinh" class="form-control" required>
 
-                                    <label>Avatar *</label>
+                                    <label>Ảnh đại diện *</label>
                                     <input type="file" name="HinhAnh" class="form-control" require>
 
                                     <button type="submit" class="btn btn-outline-primary-2">

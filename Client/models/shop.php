@@ -55,14 +55,6 @@ class Shop extends model
 
         return $data;
     }
-    function sanpham_noibat()
-    {
-        // $query = "SELECT * FROM sanpham WHERE MaSP = (SELECT MaSP sp FROM chitiethoadon GROUP BY MaSP ORDER BY COUNT(MaSP) DESC LIMIT 1)";
-        // $query ="SELECT * FROM sanpham WHERE TrangThai = 1 ORDER BY MaSP DESC LIMIT 9";
-        $query = " SELECT `chitiethoadon`.*,`sanpham`.* FROM `chitiethoadon` JOIN `sanpham` on `chitiethoadon`.`MaSP`=`sanpham`.`MaSP`";
-        require("result.php");
-        return $data;
-    }
     function count_sp()
     {
         $query = "SELECT COUNT(MaSP) as tong FROM product";

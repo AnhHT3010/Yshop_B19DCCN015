@@ -58,7 +58,7 @@
                                     <span class="fa-regular fa-star"></span>
                                     <span class="fa-regular fa-star"></span>
                                 </div>
-                                <span class="ratings-text">( <?= $dataview['SoLuongView'] ?> Views )</span>
+                                <span class="ratings-text">( <?= $dataview['SoLuongView'] ?> Lượt xem )</span>
                             </div><!-- End .rating-container -->
 
                             <div class="product-price">

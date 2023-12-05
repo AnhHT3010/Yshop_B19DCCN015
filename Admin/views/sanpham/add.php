@@ -18,7 +18,7 @@
                 <div class="tile-body">
                     <div class="row element-button">
                         <div class="col-sm-2">
-                            <a href="?mod=loaisanpham&act=add" class="btn btn-add btn-sm"><i class="bx bxs-comment-add"></i>Thêm hãng mới</a>
+                            <a href="?mod=thuonghieu&act=add" class="btn btn-add btn-sm"><i class="bx bxs-comment-add"></i>Thêm hãng mới</a>
                         </div>
                         <div class="col-sm-2">
                             <a href="?mod=danhmuc&act=add" class="btn btn-add btn-sm"><i class="bx bxs-comment-add"></i>

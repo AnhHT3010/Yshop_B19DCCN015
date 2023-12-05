@@ -14,8 +14,9 @@ class LoginContronler
     {
         $data_categories = $this->login_model->categories();
         $data_brands = array();
-        for ($i = 1; $i <= count($data_categories); $i++) {
-            $data_brands[$i] = $this->login_model->brands($i);
+        for ($i = 0; $i < count($data_categories); $i++) {
+            $idDM = $data_categories[$i]['MaDM'];
+            $data_brands[$i] = $this->login_model->brands($idDM);
         }
         if (isset($_SESSION['id_ND']) && $_SESSION['id_ND'] && !empty($_SESSION['id_ND'])) {
             $data_cart = $this->cart_model->detail_cart_item($_SESSION['id_ND']);
@@ -45,10 +46,10 @@ class LoginContronler
             'Ten'  =>  $_POST['Ten'],
             'GioiTinh' => "",
             'SDT' => "",
-            'Email' => "",
+            'Email' => $_POST['Email'],
             'DiaChi'  =>   "",
             'Quan'  =>   "",
-            'Phuong'  =>   "",
+            'Tinh'  =>   "",
             'HinhAnh' => "",
             'TaiKhoan' => $_POST['TaiKhoan'],
             'MatKhau' => md5($_POST['MatKhau']),
@@ -76,17 +77,15 @@ class LoginContronler
             'taikhoan' => $taikhoan,
             'matkhau' => $matkhau,
         );
-        if (isset($_SESSION['login']['MaND'])) {
-            $data_profile = $this->login_model->account();
-        }
         $this->login_model->login_action($data);
     }
     function account()
     {
         $data_categories = $this->login_model->categories();
         $data_brands = array();
-        for ($i = 1; $i <= count($data_categories); $i++) {
-            $data_brands[$i] = $this->login_model->brands($i);
+        for ($i = 0; $i < count($data_categories); $i++) {
+            $idDM = $data_categories[$i]['MaDM'];
+            $data_brands[$i] = $this->login_model->brands($idDM);
         }
         if (isset($_SESSION['id_ND']) && $_SESSION['id_ND'] && !empty($_SESSION['id_ND'])) {
             $data_cart = $this->cart_model->detail_cart_item($_SESSION['id_ND']);
@@ -102,8 +101,9 @@ class LoginContronler
     function huydonhang(){
         $data_categories = $this->login_model->categories();
         $data_brands = array();
-        for ($i = 1; $i <= count($data_categories); $i++) {
-            $data_brands[$i] = $this->login_model->brands($i);
+        for ($i = 0; $i < count($data_categories); $i++) {
+            $idDM = $data_categories[$i]['MaDM'];
+            $data_brands[$i] = $this->login_model->brands($idDM);
         }
         if (isset($_SESSION['id_ND']) && $_SESSION['id_ND'] && !empty($_SESSION['id_ND'])) {
             $data_cart = $this->cart_model->detail_cart_item($_SESSION['id_ND']);
@@ -112,11 +112,13 @@ class LoginContronler
         $data_order = $this->login_model->order_data();
         if (isset($_GET['idHD'])) {
             $maHD = $_GET['idHD'];
-            print_r($_GET['idHD']);
             // cập nhật lại số lượng cho sản phẩm khi đơn hàng bị hủy
             $this->cart_model->increase_product_quatity($maHD);
-            // Hủy đơn hàng: Xóa mã order, các cart item sẽ tự động mất nếu như đang gán id khóa ngoại của mã order
-            $this->login_model->cancelOrder($maHD);
+            $data_maHD = array(
+                'MaHD' => $_GET['idHD'],
+                'TrangThai' => 2,
+            );
+            $this->login_model->cancelOrder($data_maHD);
         }
     }
     function dangxuat()

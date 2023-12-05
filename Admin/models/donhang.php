@@ -20,16 +20,30 @@ class Hoadon extends Model
 
         return $data;
     }
-    function delete_order_by_MaHD($id)
+    function delete_order_by_MaHD($data)
     {
-        $query =  "DELETE FROM $this->table WHERE $this->contens = $id";
+        $v = "";
+        foreach ($data as $key => $value) {
+            $v .= $key . "='" . $value . "',";
+        }
+        $v = trim($v, ",");
+
+        $query = "UPDATE $this->table SET  $v   WHERE $this->contens = " . $data[$this->contens];
         $result = $this->conn->query($query);
         if ($result == true) {
-            setcookie('msg-success', 'Xóa đơn thành công', time() + 2);
+            setcookie('msg-success', 'Hủy đơn thành công', time() + 2);
         } else {
             setcookie('msg-error', 'Gặp lỗi trong quá trình xử lý đơn hàng', time() + 2);
         }
         header('Location: ?mod=donhang');
+    }
+    function increase_product_quatity($maHD)
+    {
+        $query = "UPDATE product
+                INNER JOIN cart_item015 ON product.MaSP = cart_item015.MaSP
+                SET product.SoLuong = product.SoLuong + cart_item015.SoLuongTrongGio
+                WHERE cart_item015.MaHD = $maHD";
+        $result = $this->conn->query($query);
     }
     function get_products_by_MaHD($maHD)
     {
@@ -104,7 +118,7 @@ class Hoadon extends Model
             JOIN order015 o ON o.MaHD = c.MaHD 
             WHERE MONTH(o.NgayLap) = $currentMonth AND o.TrangThai = 1";
         }
-        //Fetch records from database 
+        //Lấy bản ghi từ cơ sở dữ liệu 
         $query = $this->conn->query($query);
         if ($query->num_rows > 0) {
             // Output each row of the data 

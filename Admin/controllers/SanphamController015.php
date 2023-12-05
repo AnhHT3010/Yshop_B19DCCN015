@@ -63,6 +63,7 @@ class SanphamController015
         }
         $jsonString = $_POST['AnhURL'];
         $array_image = json_decode($jsonString, true);
+        $this->sanpham_model->add_views($lastInsertedID);
         
         if (is_array($array_image)) {
             foreach ($array_image as $key => $value) {
@@ -79,7 +80,6 @@ class SanphamController015
                 );
                 $this->sanpham_model->storeImage($data_image);
             }
-            $this->sanpham_model->add_views($lastInsertedID);
         } else {
             die('Invalid JSON data: The decoded value is not an array.');
         }

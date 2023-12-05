@@ -131,7 +131,7 @@
                 <div class="dropdown compare-dropdown">
                     <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static" title="Compare Products" aria-label="Compare Products">
                         <?php if (isset($_SESSION['isLogin'])) { ?>
-                            <?php if (isset($data_profile['HinhAnh'])) { ?>
+                            <?php if (isset($data_profile['HinhAnh']) && $data_profile['HinhAnh'] != "") { ?>
                                 <img src="<?= $data_profile['HinhAnh'] ?>" style="height: 50px; width: 50px" class="rounded-circle" />
                             <?php } else { ?>
                                 <img src="https://icons.iconarchive.com/icons/papirus-team/papirus-status/512/avatar-default-icon.png" alt="avatar" width="50px" class="rounded-circle" />
@@ -246,10 +246,10 @@
                                 <li class="item-lead"><a href="#">Chương trình quà tặng</a></li>
 
                                 <?php
-                                $i = 1;
+                                $i = 0;
                                 // print_r($data_brands);
                                 foreach ($data_brands as $row) : ?>
-                                    <li><a href="#"><?= $data_categories[$i - 1]['TenDM'] ?></a>;
+                                    <li><a href="#"><?= $data_categories[$i]['TenDM'] ?></a>;
                                         <?php foreach ($row as $value) {
                                             if ($value != NULL) { ?>
                                                 <ul class="">
@@ -270,11 +270,13 @@
             <div class="header-center">
                 <nav class="main-nav">
                     <ul class="menu sf-arrows">
-                        <?php for ($i = 0; $i < 5; $i++) { ?>
-                            <li class="megamenu-container">
-                                <a href="type-product-categoris-<?= $data_categories[$i]['MaDM'] ?>">
-                                    <?= $data_categories[$i]['TenDM'] ?></a>
-                            </li>
+                        <?php for ($i = 0; $i < 8; $i++) { 
+                            if(isset($data_categories[$i]['MaDM'])){?>
+                                <li class="megamenu-container">
+                                    <a href="type-product-categoris-<?= $data_categories[$i]['MaDM'] ?>">
+                                        <?= $data_categories[$i]['TenDM'] ?></a>
+                                </li>
+                            <?php } ?>
                         <?php } ?>
                     </ul><!-- End .menu -->
                 </nav><!-- End .main-nav -->

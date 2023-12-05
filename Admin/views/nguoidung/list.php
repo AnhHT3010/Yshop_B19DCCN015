@@ -42,7 +42,7 @@
                                                     <td>#<?= $row['MaND'] ?></td>
                                                     <td><?= $row['Ho'] ?> <?= $row['Ten'] ?></td>
                                                     <td><?= $row['TaiKhoan'] ?></td>
-                                                    <td><?= $row['Phuong'] ?> <?= $row['Quan'] ?> <?= $row['DiaChi'] ?></td>
+                                                    <td><?= $row['Tinh'] ?> <?= $row['Quan'] ?> <?= $row['DiaChi'] ?></td>
                                                     <td><?= $row['GioiTinh'] ?></td>
                                                     <td><?= $row['SDT'] ?></td>
                                                     <td><?php

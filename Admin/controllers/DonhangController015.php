@@ -23,8 +23,13 @@ class DonhangController015
     function delete()
     {
         $id = isset($_GET['id']) ? $_GET['id'] : 1;
-        $data = $this->hoadon_model->delete_order_by_MaHD($id);
-        require_once("./views/admin/home.php");
+        $this->hoadon_model->increase_product_quatity($id);
+        $data = array(
+            'MaHD' => $_GET['id'],
+            'TrangThai' => 2,
+        );
+        $this->hoadon_model->delete_order_by_MaHD($data);
+        // $data = $this->hoadon_model->delete_order_by_MaHD($id);
     }
     
     function browse_bill()

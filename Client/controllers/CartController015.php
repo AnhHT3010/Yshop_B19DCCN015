@@ -21,8 +21,9 @@ class CartController015
         $data_categories = $this->cart_model->categories();
         $data_catalogdetails = array();
         $data_profile = $this->login_model->account();
-        for ($i = 1; $i <= count($data_categories); $i++) {
-            $data_brands[$i] = $this->home_model->brands($i);
+        for ($i = 0; $i < count($data_categories); $i++) {
+            $idDM = $data_categories[$i]['MaDM'];
+            $data_brands[$i] = $this->cart_model->brands($idDM);
         }
         for ($i = 1; $i <= count($data_categories); $i++) {
             $data_catalogdetails[$i] = $this->cart_model->catalogdetails($i);

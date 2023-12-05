@@ -61,12 +61,14 @@
                                                 <td><?= number_format($order['TongTien']) ?></td>
                                                 <?php if ($order['TrangThai'] == 0) { ?>
                                                     <td><span class="badge bg-warning">Chờ duyệt đơn</span></td>
-                                                <?php } else { ?>
+                                                <?php } else if ($order['TrangThai'] == 1) { ?>
                                                     <td><span class="badge bg-success">Đã giao hàng</span></td>
+                                                <?php } else { ?>
+                                                    <td><span class="badge bg-danger">Đơn hàng đã bị hủy</span></td>
                                                 <?php } ?>
                                                 <td>
                                                     <a href="./?mod=donhang&act=detail&id=<?= $order['MaHD'] ?>" class="btn btn-primary btn-sm edit mb-1"><i class="bi eye"></i> Xem chi tiết</a>
-                                                    <a class="btn btn-danger btn-sm trash" href="./?mod=donhang&act=delete&id=<?= $order['MaHD'] ?>" onclick="return confirm('Do you really want to delete?');">Xóa<i class="bx bxs-trash"></i></a>
+                                                    <a class="btn btn-danger btn-sm trash" href="./?mod=donhang&act=delete&id=<?= $order['MaHD'] ?>" onclick="return confirm('Bạn chắc chắn muốn hủy đơn hàng này ?');">Xóa<i class="bx bxs-trash"></i></a>
                                                 </td>
                                             </tr>
                                         <?php endforeach; ?>

@@ -34,8 +34,9 @@ class CheckoutController015
                 $data_categories = $this->checkout_model->categories();
                 $data_brands = array();
                 $data_profile = $this->login_model->account();
-                for ($i = 1; $i <= count($data_categories); $i++) {
-                    $data_brands[$i] = $this->checkout_model->brands($i);
+                for ($i = 0; $i < count($data_categories); $i++) {
+                    $idDM = $data_categories[$i]['MaDM'];
+                    $data_brands[$i] = $this->checkout_model->brands($idDM);
                 }
                 require_once('Client/views/index.php');
             }
@@ -59,9 +60,9 @@ class CheckoutController015
                 'NgayLap' => $ThoiGian,
                 'NguoiNhan' => $_POST['NguoiNhan'],
                 'SDT' => $_POST['SDT'],
-                'DiaChi' => $_POST['DiaChi'],
+                'Tinh' => $_POST['Tinh'],
                 'Quan' => $_POST['Quan'],
-                'Phuong' => $_POST['Phuong'],
+                'DiaChi' => $_POST['DiaChi'],
                 'PhuongThucTT' => $_POST['PhuongThucTT'],
                 'TongTien' => $count,
                 'TrangThai'  =>  '0',

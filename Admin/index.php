@@ -29,9 +29,6 @@ if (isset($_SESSION['isLogin_Admin']) && $_SESSION['isLogin_Admin'] == true) {
           case 'store':
             $controller_obj->store();
             break;
-          case 'detail':
-            // $controller_obj->detail();
-            break;
           case 'delete':
             $controller_obj->delete();
             break;
@@ -60,9 +57,6 @@ if (isset($_SESSION['isLogin_Admin']) && $_SESSION['isLogin_Admin'] == true) {
           case 'store':
             $controller_obj->store();
             break;
-          case 'detail':
-            // $controller_obj->detail();
-            break;
           case 'delete':
             $controller_obj->delete();
             break;
@@ -89,9 +83,6 @@ if (isset($_SESSION['isLogin_Admin']) && $_SESSION['isLogin_Admin'] == true) {
             break;
           case 'store':
             $controller_obj->store();
-            break;
-          case 'detail':
-            // $controller_obj->detail();
             break;
           case 'delete':
             $controller_obj->delete();

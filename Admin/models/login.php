@@ -25,6 +25,10 @@ class login
         $query = "select count(MaND) as sum from user where MaQuyen = 1";
         return $this->conn->query($query)->fetch_assoc();
     }
+    function productExpiresStatistics(){
+        $query = "select count(MaSP) as sum from product where SoLuong < 5 and SoLuong > 0";
+        return $this->conn->query($query)->fetch_assoc();
+    }
     function best_selling_product()
     {
         $query =  "SELECT p.TenSP, p.AnhDaiDien,p.DonGia, SUM(c.SoLuongTrongGio) AS TongSoLuong

@@ -834,6 +834,10 @@ h6 {
   color: #ff771d;
   background: #ffecdf;
 }
+.dashboard .product-card .card-icon {
+  color: #ff1d1d;
+  background: #ffdfdf;
+}
 
 /* Activity */
 .dashboard .activity {

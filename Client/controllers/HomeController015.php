@@ -21,8 +21,9 @@ class HomeController015
         if(isset($_SESSION['login']['MaND'])){
             $data_profile = $this->login_model->account();
         }
-        for ($i = 1; $i <= count($data_categories); $i++) {
-            $data_brands[$i] = $this->home_model->brands($i);
+        for ($i = 0; $i < count($data_categories); $i++) {
+            $idDM = $data_categories[$i]['MaDM'];
+            $data_brands[$i] = $this->login_model->brands($idDM);
         }
         $data_recommendationforyou = $this->home_model->random(0, 12);
         $top_rated = $this->home_model->liveviews();

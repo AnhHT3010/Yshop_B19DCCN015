@@ -24,9 +24,11 @@
                                     <div class="d-flex-row m-3">
                                         <?php if ($data['0']['TrangThai'] == 0) { ?>
                                             <a href="./?mod=donhang&act=browse_bill&id=<?= $data['0']['MaHD'] ?>" class="btn btn-success me-2">Duyệt đơn hàng</a>
-                                            <a href="./?mod=donhang&act=delete&id=<?= $data['0']['MaHD'] ?>" onclick="return confirm('Do you really want to delete?');" type="button" class="btn btn-danger">Xóa</a>
+                                            <a href="./?mod=donhang&act=delete&id=<?= $data['0']['MaHD'] ?>" onclick="return confirm('Bạn có chắc chắn muốn hủy đơn hàng này?');" type="button" class="btn btn-danger">Xóa</a>
+                                        <?php } else if ($data['0']['TrangThai'] == 1) { ?>
+                                            <a href="./?mod=donhang&act=delete&id=<?= $data['0']['MaHD'] ?>" onclick="return confirm('Bạn có chắc chắn muốn hủy đơn hàng này?');" type="button" class="btn btn-danger">Thu hồi đơn hàng</a>
                                         <?php } else { ?>
-                                            <a href="./?mod=donhang&act=delete&id=<?= $data['0']['MaHD'] ?>" onclick="return confirm('Do you really want to delete?');" type="button" class="btn btn-danger">Thu hồi đơn hàng</a>
+                                            <a type="button" disabled="disabled" class="btn btn-danger">Đơn hàng này đã bị hủy</a>
                                         <?php } ?>
                                     </div>
                                     <table class="table table-striped datatable">

@@ -25,6 +25,7 @@ class login extends model
         if ($login !== NULL) {
             if ($login['MaQuyen'] == 2) {
                 $_SESSION['isLogin_Admin'] = true;
+                $_SESSION['HinhAnh'] = $login['HinhAnh'];
                 $_SESSION['login'] = $login;
                 $_SESSION['id_Admin'] = $login['MaND'];
                 header('Location: admin');
@@ -41,11 +42,6 @@ class login extends model
             header('Location: account');
         }
     }
-    function account()
-    {
-        $id = $_SESSION['login']['MaND'];
-        return $this->conn->query("SELECT * from user where MaND = $id")->fetch_assoc();
-    }
     function order_data()
     {
         $id = $_SESSION['id_ND'];
@@ -58,9 +54,10 @@ class login extends model
     function getProductsByMaHD($maHD)
     {
         $id = $_SESSION['id_ND'];
-        $query = "SELECT c.*, p.DonGia, p.TenSP, p.AnhDaiDien, p.SoLuong
+        $query = "SELECT c.*, p.DonGia, p.TenSP, p.AnhDaiDien, p.SoLuong, o.TrangThai
           FROM cart_item015 c 
           JOIN product p ON c.MaSP = p.MaSP 
+          JOIN order015 o ON o.MaHD = c.MaHD 
           WHERE c.MaND = $id AND c.MaHD = $maHD";
         require("result.php");
         return $data;
@@ -102,17 +99,23 @@ class login extends model
         session_reset();
         echo '<script>window.location.href="account";</script>';
     }
-    function cancelOrder($maHD)
+    function cancelOrder($data)
     {
-        $query = "DELETE FROM order015 WHERE MaHD = $maHD";
+        $v = "";
+        foreach ($data as $key => $value) {
+            $v .= $key . "='" . $value . "',";
+        }
+        $v = trim($v, ",");
+
+        $query = "UPDATE order015 SET  $v   WHERE MaHD =". $data['MaHD'];
         $result = $this->conn->query($query);
         if ($result == true) {
-            setcookie('msg-success', 'Hủy đơn hàng thành công !', time() + 2);
-            header('Location: personal');
+            setcookie('msg-success', 'Hủy đơn thành công', time() + 2);
         } else {
-            setcookie('msg-error', 'Lỗi cập nhật', time() + 2);
-            header('Location: personal');
+            setcookie('msg-error', 'Gặp lỗi trong quá trình xử lý đơn hàng', time() + 2);
         }
+        header('Location: personal');
+
     }
     function logout()
     {

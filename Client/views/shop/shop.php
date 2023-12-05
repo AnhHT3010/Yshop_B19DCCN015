@@ -29,10 +29,9 @@
 
                         </div><!-- End .row -->
                     </div><!-- End .cat-blocks-container -->
-                    <div class="owl-carousel owl-simple owl-nav-align " data-toggle="owl" data-owl-options='{
+                    <div class="owl-carousel owl-simple owl-nav-align " style="width: 80vw;" data-toggle="owl" data-owl-options='{
                                     "nav": false,
                                     "dots": true,
-                                    "margin": 30,
                                     "loop": false,
                                     "responsive": {
                                         "0": {
@@ -54,28 +53,20 @@
                                         }
                                     }
                                 }'>
-                        <a href="./?act=shop&from=100&to=150" class="brand">
-                            Under $150
+                        <a href="./?act=shop&from=1000000&to=5000000" class="brand">
+                            Từ 1 triệu đến 5 triệu VNĐ
                         </a>
 
-                        <a href="./?act=shop&from=155&to=250" class="brand">
-                            $150 to $250
+                        <a href="./?act=shop&from=5000000&to=15000000" class="brand">
+                            Từ 5 triệu đến 15 triệu VNĐ
                         </a>
 
-                        <a href="./?act=shop&from=255&to=450" class="brand">
-                            $250 to $450
+                        <a href="./?act=shop&from=15000000&to=25000000" class="brand">
+                            Từ 15 triệu đến 25 triệu VNĐ
                         </a>
 
-                        <a href="./?act=shop&from=451&to=600" class="brand">
-                            $450 to $600
-                        </a>
-
-                        <a href="./?act=shop&from=601&to=800" class="brand">
-                            $600 to $800
-                        </a>
-
-                        <a href="./?act=shop&from=800&to=10000" class="brand">
-                            $800 & Above
+                        <a href="./?act=shop&from=25000000&to=35000000" class="brand">
+                            Từ 25 triệu đến 35 triệu VNĐ
                         </a>
                     </div><!-- End .owl-carousel -->
                     <div class="mb-4"></div><!-- End .mb-4 -->
@@ -91,10 +82,9 @@
                                 <label for="sortby">Sort by:</label>
                                 <div class="select-custom">
                                     <select class="form-control" onchange="showProduct(this.value)">
-                                        <option value="1">Hot Dael</option>
-                                        <option value="1">Most Popular</option>
-                                        <option value="2">Most Rated</option>
-                                        <option value="3">Date</option>
+                                        <option value="1">Bán cháy</option>
+                                        <option value="2">Lượt xem nhiều</option>
+                                        <option value="3">Mới ra mắt</option>
                                     </select>
                                 </div>
                             </div><!-- End .toolbox-sort -->

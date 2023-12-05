@@ -153,7 +153,7 @@
         <div class="products">
 
             <!-- Hiển thị sản phẩm gọi ý sử dụng hàm randum để truy vấn -->
-            <div class="row justify-content-center products-container">
+            <div class="row products-container">
                 <?php foreach ($data_recommendationforyou as $item) : ?>
                     <div class="col-5 col-md-3 col-lg-2">
                         <div class="product product-2">
@@ -288,24 +288,6 @@
 
             <div class="heading-right">
                 <ul class="nav nav-pills nav-border-anim justify-content-center" role="tablist">
-                    <!-- <li class="nav-item">
-                        <a class="nav-link active" id="new-all-link" data-toggle="tab" href="#new-all-tab" role="tab" aria-controls="new-all-tab" aria-selected="true">All</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="new-tv-link" data-toggle="tab" href="#new-tv-tab" role="tab" aria-controls="new-tv-tab" aria-selected="false">TV</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="new-computers-link" data-toggle="tab" href="#new-computers-tab" role="tab" aria-controls="new-computers-tab" aria-selected="false">Laptop</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="new-phones-link" data-toggle="tab" href="#new-phones-tab" role="tab" aria-controls="new-phones-tab" aria-selected="false">Tablets & Cell Phones</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="new-watches-link" data-toggle="tab" href="#new-watches-tab" role="tab" aria-controls="new-watches-tab" aria-selected="false">Smartwatches</a>
-                    </li> -->
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" id="new-acc-link">View All LAPTOP, HIGHLIGHTS SIGNS <i class="icon-long-arrow-right"></i></a>
-                    </li> -->
                 </ul>
             </div>
         </div><!-- End .heading -->
@@ -374,83 +356,6 @@
                             <span class="product-sale">Lượt xem: <?= $item['SoLuongView'] ?></span>
                         </div><!-- End .product -->
                     <?php endforeach; ?>
-                    <?php foreach ($top_rated as $item) : ?>
-                        <div class="product product-2">
-                            <figure class="product-media">
-                                <?php if ($item['TrangThai'] == 1) { ?>
-                                    <span class="product-label label-circle label-new">Mới</span>
-                                <?php  } elseif ($item['TrangThai'] == 2) { ?>
-                                    <span class="product-label label-circle label-sale-hot">Giá rẻ</span>
-                                <?php  } else { ?>
-                                    <span class="product-label label-circle label-sale">Bán chạy</span>
-                                <?php } ?>
-                                <a href="<?= $item['MaSP'] ?>.html">
-                                    <img src="<?= $item['AnhDaiDien'] ?>" alt="Product image" class="product-image">
-                                </a>
-
-                                <div class="">
-                                    <a href="?act=cart&xuli=addwishlist&id=<?= $item['MaSP'] ?>" class="btn-product-icon" title="Yêu thích"></a>
-                                </div><!-- End .product-action -->
-
-                                <div class="product-action">
-                                    <a href="?act=cart&xuli=add&id=<?= $item['MaSP'] ?>" class="btn-product btn-cart" title="Thêm vào giỏ hàng"><i class="fa-solid fa-cart-shopping px-1"></i></a>
-                                    <a href="<?= $item['MaSP'] ?>.html ?>" class="btn-product btn-quickview" title="Xem chi tiết"><i class="fa-solid fa-eye"></i></a>
-                                </div><!-- End .product-action -->
-                            </figure><!-- End .product-media -->
-
-                            <div class="product-body">
-                                <h3 class="product-title"><a href="<?= $item['MaSP'] ?>.html"><?= $item['TenSP'] ?></a></h3>
-                                <!-- End .product-title -->
-                                <div class="product-price">
-                                    <?php if ($item['SoLuong'] == 0) { ?>
-                                        <span class="old-price">Hiện đã hết hàng</span>
-                                    <?php } else { ?>
-                                        <span class="new-price">$ <?= number_format($item['DonGia']) ?></span>
-                                    <?php } ?>
-                                </div><!-- End .product-price -->
-                            </div><!-- End .product-body -->
-                            <span class="product-sale">Lượt xem: <?= $item['SoLuongView'] ?></span>
-                        </div><!-- End .product -->
-                    <?php endforeach; ?>
-                    <?php foreach ($top_rated as $item) : ?>
-                        <div class="product product-2">
-                            <figure class="product-media">
-                                <?php if ($item['TrangThai'] == 1) { ?>
-                                    <span class="product-label label-circle label-new">Mới</span>
-                                <?php  } elseif ($item['TrangThai'] == 2) { ?>
-                                    <span class="product-label label-circle label-sale-hot">Giá rẻ</span>
-                                <?php  } else { ?>
-                                    <span class="product-label label-circle label-sale">Bán chạy</span>
-                                <?php } ?>
-                                <a href="<?= $item['MaSP'] ?>.html">
-                                    <img src="<?= $item['AnhDaiDien'] ?>" alt="Product image" class="product-image">
-                                </a>
-
-                                <div class="product-action-vertical">
-                                    <a href="?act=cart&xuli=addwishlist&id=<?= $item['MaSP'] ?>" class="btn-product-icon btn-wishlist" title="Yêu thích"></a>
-                                </div><!-- End .product-action -->
-
-                                <div class="product-action">
-                                    <a href="#" class="btn-product btn-cart" title="Thêm vào giỏ  hàng"><i class="fa-solid fa-cart-shopping px-1"></i></a>
-                                    <a href="<?= $item['MaSP'] ?>.html ?>" class="btn-product btn-quickview" title="Xem chi tiết"><i class="fa-solid fa-eye"></i></a>
-                                </div><!-- End .product-action -->
-                            </figure><!-- End .product-media -->
-
-                            <div class="product-body">
-                                <h3 class="product-title"><a href="<?= $item['MaSP'] ?>.html"><?= $item['TenSP'] ?></a></h3>
-                                <!-- End .product-title -->
-                                <div class="product-price">
-                                    <?php if ($item['SoLuong'] == 0) { ?>
-                                        <span class="old-price">Hiện đã hết hàng</span>
-                                    <?php } else { ?>
-                                        <span class="new-price">$ <?= number_format($item['DonGia']) ?></span>
-                                    <?php } ?>
-                                </div><!-- End .product-price -->
-                            </div><!-- End .product-body -->
-                            <span class="product-sale">Lượt xem: <?= $item['SoLuongView'] ?></span>
-                        </div><!-- End .product -->
-                    <?php endforeach; ?>
-
                 </div><!-- End .owl-carousel -->
             </div><!-- .End .tab-pane -->
         </div><!-- End .tab-content -->

@@ -125,6 +125,8 @@ class sanpham extends model
     }
     function add_views($idSP)
     {
-        $query = "insert into live_views015 (MaSP) VALUES ".$idSP."";
+        $query = "insert into live_views015 (MaSP) VALUES ($idSP)";
+        $this->conn->query($query);
+
     }
 }

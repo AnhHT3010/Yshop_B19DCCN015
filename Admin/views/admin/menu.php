@@ -166,9 +166,8 @@
             </li><!-- End Messages Nav -->
 
             <li class="nav-item dropdown pe-3">
-
                 <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                    <img src="<?= $userdata['HinhAnh'] ?>" alt="Profile" class="rounded-circle">
+                    <img src="<?= $_SESSION['HinhAnh'] ?>" alt="Profile" class="rounded-circle">
                     <span class="d-none d-md-block dropdown-toggle ps-2"><?= $_SESSION['login']['Ho'] . " " . $_SESSION['login']['Ten'] ?></span>
                 </a><!-- End Profile Iamge Icon -->
 
@@ -286,7 +285,6 @@
     });
     let localActive = localStorage.getItem("active")
     if (!localActive) {
-        console.log("set")
         localStorage.setItem("active", "home-link")
     }
     localActive = localStorage.getItem("active")
@@ -299,7 +297,6 @@
     document.getElementById("thuonghieu-link").addEventListener("click", function() {
         localStorage.setItem("active", "thuonghieu-link")
     });
-
     document.getElementById("danhmuc-link").addEventListener("click", function() {
         localStorage.setItem("active", "danhmuc-link")
     });
@@ -311,9 +308,6 @@
     });
     document.getElementById("donhang-link").addEventListener("click", function() {
         localStorage.setItem("active", "donhang-link")
-    });
-    document.getElementById("quangcao-link").addEventListener("click", function() {
-        localStorage.setItem("active", "quangcao-link")
     });
     document.getElementById("home-link").addEventListener("click", function() {
         localStorage.setItem("active", "home-link")
