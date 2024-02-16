@@ -1,3 +1,11 @@
 RewriteEngine On
 RewriteRule "trangchu" "?act=home"
-RewriteRule "dangnhap" "?act=login"
+RewriteRule "login" "?act=taikhoan&xuli=dangnhap"
+RewriteRule "account" "?act=taikhoan"
+RewriteRule "personal" "?act=taikhoan&xuli=account"
+RewriteRule "([0-9]+).html$" "?act=detail&id=$1"
+RewriteRule "store" "?act=shop" 
+RewriteRule "checkout" "?act=checkout" 
+RewriteRule "cart" "?act=cart&checked=1" 
+RewriteRule "type-product-categoris-([0-9]+)" "?act=shop&category=$1"
+RewriteRule "detail-order-([0-9]+)" "?act=taikhoan&xuli=account&maHD=$1"
